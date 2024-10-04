@@ -18,6 +18,7 @@ import ImageModal from "./ImageModal";
 import Divider from "./Divider";
 import TechIcon from "./TechIcon";
 import { Project } from "../data/sectionData";
+import { getDividerColor } from "../utils";
 
 interface SectionProps {
   sectionData: Project;
@@ -37,7 +38,6 @@ export default function Section({ sectionData }: SectionProps) {
     subtitle,
     color,
     dividerColor,
-    dividerAlt,
     sectionInfo,
     columns,
   } = sectionData || {};
@@ -47,13 +47,7 @@ export default function Section({ sectionData }: SectionProps) {
   const theme = useTheme();
   const shade = useColorModeValue("100", "800");
 
-  const convertDividerColor = (): string => {
-    if (dividerColor === "white") {
-      return shade === "800" ? "#1A202C" : "#fff";
-    }
-
-    return theme.colors[dividerColor][shade];
-  };
+  const chakraDividerColor = getDividerColor(dividerColor, shade, theme)
 
   return (
     <Box
@@ -65,13 +59,14 @@ export default function Section({ sectionData }: SectionProps) {
       marginTop="0 !important"
       _last={{ pb: 20 }}
     >
-      <Divider color={convertDividerColor()} alt={dividerAlt} />
+      <Divider chakraProps={{ color: chakraDividerColor }} />
       <Stack
         w="full"
         maxW="1200px"
         align="center"
         marginTop="0 !important"
-        py={20}
+        pt={32}
+        pb={20}
         margin="auto"
         gap={3}
       >
@@ -107,11 +102,10 @@ export default function Section({ sectionData }: SectionProps) {
                   <GridItem key={type}>
                     <TechIcon
                       type={type}
-                      labelColor={`${color}.${
-                        parseInt(shade) < 300
-                          ? parseInt(shade) + 500
-                          : parseInt(shade) - 400
-                      }`}
+                      labelColor={`${color}.${parseInt(shade) < 300
+                        ? parseInt(shade) + 500
+                        : parseInt(shade) - 400
+                        }`}
                     />
                   </GridItem>
                 ))}
@@ -143,11 +137,10 @@ export default function Section({ sectionData }: SectionProps) {
             <Card
               key={`main-section-card-${index}`}
               data={cardData}
-              sectionColor={`${color}.${
-                parseInt(shade) < 300
-                  ? parseInt(shade) + 500
-                  : parseInt(shade) - 400
-              }`}
+              sectionColor={`${color}.${parseInt(shade) < 300
+                ? parseInt(shade) + 500
+                : parseInt(shade) - 400
+                }`}
               setModalContent={setModalContent}
             />
           ))}

@@ -16,30 +16,31 @@ import {
   GrInstagram,
 } from "react-icons/gr";
 import Divider from "./Divider";
+import { getDividerColor } from "../utils";
 
 interface FooterProps {
   setOpenContact: (open: boolean) => void;
 }
 
 export default function Footer({ setOpenContact }: FooterProps) {
-  const { colors } = useTheme();
+  const theme = useTheme();
+  const shade = useColorModeValue("100", "800");
 
-  const colorModeValue = useColorModeValue(
-    colors.yellow[300],
-    colors.gray[700],
-  );
+  const chakraDividerColor = getDividerColor('yellow', shade, theme)
+  console.log({ chakraDividerColor, shade })
 
   return (
     <Box
       as="footer"
-      bg={colorModeValue}
+      bg={theme.colors.yellow[300]}
       pos="relative"
       w="full"
-      py={20}
+      pt={32}
+      pb={20}
       marginTop="-1rem !important"
     >
-      <Divider color={colorModeValue} invert />
-      <Flex justify="center" gap={5} pb={5}>
+      <Divider chakraProps={{ color: chakraDividerColor }} />
+      <Flex justify="center" gap={5} pb={10}>
         <a
           href="https://www.linkedin.com/in/chris-haupt/"
           target="_blank"
@@ -68,15 +69,15 @@ export default function Footer({ setOpenContact }: FooterProps) {
       </Flex>
       <Flex justify="center" align="center" mt={3}>
         <Text mb={0}>
-          Created using <strong>React</strong>
+          Created using <strong style={{ color: "#0A7EA4" }}>React</strong>
         </Text>
         <Box mx={1}>
-          <GrReactjs size="2rem" color="white" />
+          <GrReactjs size="2rem" color="#0A7EA4" />
         </Box>
         <Text>
           Check out the source over on{" "}
           <Link
-            href="https://github.com/erasebegin/portfolio-2022"
+            href="https://github.com/erasebegin/portfolio-2024"
             target="_blank"
             rel="noopener noreferrer"
           >

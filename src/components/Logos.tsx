@@ -59,9 +59,8 @@ function generateCircleLayout(
     rotation += angle;
     transformationString += `
       &:nth-of-type(${i}) {
-        transform: rotate(${rotation}deg) translate(${
-          parseInt(circleSize) / divideBy
-        }px) rotate(${rotation * -1}deg);
+        transform: rotate(${rotation}deg) translate(${parseInt(circleSize) / divideBy
+      }px) rotate(${rotation * -1}deg);
         transition: 200ms;
       }
     `;
@@ -108,4 +107,5 @@ const CircleArrangement = styled.ul<CircleArrangementProps>`
   top: 45%;
   transform: translate(-50%, -50%);
   z-index: -1;
+  pointer-events: none;
 `;

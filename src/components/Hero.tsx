@@ -106,13 +106,11 @@ export default function Hero({ setIsOpen, isOpen }: HeroProps) {
           </Button>
 
           <Box pos="relative" zIndex="4">
-            {/*<Logos showLogos={showLogos} />*/}
+            <Logos showLogos={showLogos} />
             <Image
               src="./images/me-aibg.jpg"
               alt="headshot, face turned to side, background is balck-and-white"
               borderRadius="full"
-              maxW={300}
-              maxH={300}
               boxSize={[
                 showLogos ? "200px" : "300px",
                 showLogos ? "200px" : "300px",
