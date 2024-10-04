@@ -1,4 +1,11 @@
-import { Box, Flex, Theme, useColorModeValue } from "@chakra-ui/react";
+import {
+  Box,
+  Flex,
+  Theme,
+  useColorModeValue,
+  Text,
+  Link,
+} from "@chakra-ui/react";
 import styled from "@emotion/styled";
 import { useTheme } from "@chakra-ui/react";
 import {
@@ -32,7 +39,7 @@ export default function Footer({ setOpenContact }: FooterProps) {
       marginTop="-1rem !important"
     >
       <Divider color={colorModeValue} invert />
-      <Flex justify="center" gap={5}>
+      <Flex justify="center" gap={5} pb={5}>
         <a
           href="https://www.linkedin.com/in/chris-haupt/"
           target="_blank"
@@ -59,22 +66,24 @@ export default function Footer({ setOpenContact }: FooterProps) {
           <GrMail size="2rem" color="white" />
         </Box>
       </Flex>
-      <FooterTextContainer>
-        <p>
-          Created using <b>React</b>
-        </p>
-        <GrReactjs size="2rem" />
-        <p>
+      <Flex justify="center" align="center" mt={3}>
+        <Text mb={0}>
+          Created using <strong>React</strong>
+        </Text>
+        <Box mx={1}>
+          <GrReactjs size="2rem" color="white" />
+        </Box>
+        <Text>
           Check out the source over on{" "}
-          <a
+          <Link
             href="https://github.com/erasebegin/portfolio-2022"
             target="_blank"
             rel="noopener noreferrer"
           >
             Github
-          </a>
-        </p>
-      </FooterTextContainer>
+          </Link>
+        </Text>
+      </Flex>
     </Box>
   );
 }

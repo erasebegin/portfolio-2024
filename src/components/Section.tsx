@@ -1,6 +1,5 @@
 import { useState } from "react";
 import styled from "@emotion/styled";
-import { useTheme } from "@emotion/react";
 import { IoMdArrowDropright } from "react-icons/io";
 import {
   Box,
@@ -12,23 +11,16 @@ import {
   Stack,
   Text,
   useColorModeValue,
+  useTheme,
 } from "@chakra-ui/react";
 import Card from "./Card";
 import ImageModal from "./ImageModal";
 import Divider from "./Divider";
 import TechIcon from "./TechIcon";
+import { Project } from "../data/sectionData";
 
 interface SectionProps {
-  sectionData: {
-    cards: Array<CardData>;
-    title: string;
-    subtitle: string;
-    color: string;
-    dividerColor: string;
-    dividerAlt: boolean;
-    sectionInfo?: SectionInfo;
-    columns?: number;
-  };
+  sectionData: Project;
 }
 
 interface CardData {
@@ -36,12 +28,6 @@ interface CardData {
   description: string;
   image: string;
   tech?: string[];
-}
-
-interface SectionInfo {
-  duration: string;
-  description: string;
-  tech: string[];
 }
 
 export default function Section({ sectionData }: SectionProps) {

@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useTheme } from "@emotion/react";
 import { HiMail, HiCode, HiX } from "react-icons/hi";
 import Divider from "./Divider";
 import Logos from "./Logos";
@@ -11,6 +10,7 @@ import {
   Image,
   Stack,
   Text,
+  useTheme,
 } from "@chakra-ui/react";
 import HeroSvg from "./HeroSvg";
 
@@ -35,20 +35,20 @@ export default function Hero({ setIsOpen, isOpen }: HeroProps) {
         <HeroSvg
           side="left"
           display={["none", "none", "none", "initial"]}
-          ariaLabel="frontend developer"
+          aria-label="frontend developer"
           pos="absolute"
-          bottom="15rem"
-          left="-10rem"
+          bottom="280px"
+          left="300px"
           maxW="300px"
         />
 
         <HeroSvg
           side="right"
           display={["none", "none", "none", "initial"]}
-          ariaLabel="morning person, javascript junkie"
+          aria-label="morning person, javascript junkie"
           pos="absolute"
-          bottom="10rem"
-          right="-10rem"
+          bottom="160px"
+          right="18%"
           maxW="300px"
         />
 
@@ -106,11 +106,13 @@ export default function Hero({ setIsOpen, isOpen }: HeroProps) {
           </Button>
 
           <Box pos="relative" zIndex="4">
-            <Logos showLogos={showLogos} />
+            {/*<Logos showLogos={showLogos} />*/}
             <Image
-              src="./images/headshot3-small.jpg"
-              alt="headshot, sketch style with flower-pattern background"
+              src="./images/me-aibg.jpg"
+              alt="headshot, face turned to side, background is balck-and-white"
               borderRadius="full"
+              maxW={300}
+              maxH={300}
               boxSize={[
                 showLogos ? "200px" : "300px",
                 showLogos ? "200px" : "300px",
@@ -162,18 +164,30 @@ export default function Hero({ setIsOpen, isOpen }: HeroProps) {
           </Button>
         </Flex>
 
-        <Box px={3} pt={showLogos ? 150 : 50} transition="200ms ease-in-out">
+        <Stack
+          px={3}
+          pt={showLogos ? 150 : 50}
+          transition="200ms ease-in-out"
+          align="center"
+        >
           <Heading as="h1" size={["3xl", "4xl"]} mb={3}>
             Chris Haupt's
           </Heading>
           <Heading as="h2" size="2xl" mb={10}>
             Portfolio
           </Heading>
-          <Heading as="h3" size="lg" maxW={700} fontWeight="400" pb={20}>
+          <Heading
+            as="h3"
+            size="lg"
+            maxW={700}
+            fontWeight="400"
+            pb={20}
+            textAlign="center"
+          >
             A collection of my frontend projects created over the years using
             mostly <b>React</b>.
           </Heading>
-        </Box>
+        </Stack>
       </Stack>
     </Box>
   );
