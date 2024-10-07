@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 import { css } from "@emotion/react";
 import { useMediaQuery } from "@chakra-ui/react";
+import { logoArr } from "../data/logos";
 
 interface LogosProps {
   showLogos: boolean;
@@ -13,19 +14,6 @@ interface CircleArrangementProps {
 
 export default function Logos({ showLogos }: LogosProps) {
   const [isMobile] = useMediaQuery("(max-width: 48em)");
-
-  const logoArr = [
-    "firebase",
-    "react",
-    "graphql",
-    "chakra",
-    "next-js",
-    "jira",
-    "sass",
-    "github",
-    "vue",
-    "nuxt",
-  ];
 
   return (
     <CircleArrangement $show={showLogos} $isMobile={isMobile}>

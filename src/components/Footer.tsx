@@ -69,10 +69,10 @@ export default function Footer({ setOpenContact }: FooterProps) {
       </Flex>
       <Flex justify="center" align="center" mt={3}>
         <Text mb={0}>
-          Created using <strong style={{ color: "#0A7EA4" }}>React</strong>
+          Created using <strong style={{ color: theme.colors.reactBlue }}>React</strong>
         </Text>
         <Box mx={1}>
-          <GrReactjs size="2rem" color="#0A7EA4" />
+          <GrReactjs size="2rem" color={theme.colors.reactBlue} />
         </Box>
         <Text>
           Check out the source over on{" "}

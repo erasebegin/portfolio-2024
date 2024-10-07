@@ -25,32 +25,13 @@ export default function Hero({ setIsOpen, isOpen }: HeroProps) {
   const theme = useTheme();
 
   return (
-    <Box minH="800px">
-      <Divider color={theme.colors.blue[100]} />
+    <Box minH="900px" pt={20}>
+      <Divider chakraProps={{ color: theme.colors.blue[100] }} />
       <Stack
         pt={[showLogos ? 15 : 0, showLogos ? 15 : 0, showLogos ? 150 : 50]}
         transition="200ms ease-in-out"
         pos="relative"
       >
-        <HeroSvg
-          side="left"
-          display={["none", "none", "none", "initial"]}
-          aria-label="frontend developer"
-          pos="absolute"
-          bottom="280px"
-          left="300px"
-          maxW="300px"
-        />
-
-        <HeroSvg
-          side="right"
-          display={["none", "none", "none", "initial"]}
-          aria-label="morning person, javascript junkie"
-          pos="absolute"
-          bottom="160px"
-          right="18%"
-          maxW="300px"
-        />
 
         <Flex
           align="center"
@@ -108,7 +89,10 @@ export default function Hero({ setIsOpen, isOpen }: HeroProps) {
           <Box pos="relative" zIndex="4">
             <Logos showLogos={showLogos} />
             <Image
-              src="./images/me-aibg.jpg"
+              src="./images/me-shell-crop.jpeg"
+              border="solid"
+              borderWidth={5}
+              borderColor="blue.300"
               alt="headshot, face turned to side, background is balck-and-white"
               borderRadius="full"
               boxSize={[
@@ -166,8 +150,30 @@ export default function Hero({ setIsOpen, isOpen }: HeroProps) {
           px={3}
           pt={showLogos ? 150 : 50}
           transition="200ms ease-in-out"
+          w="600px"
+          mx="auto"
           align="center"
+          pos="relative"
         >
+          <HeroSvg
+            side="left"
+            display={["none", "none", "none", "initial"]}
+            aria-label="frontend developer"
+            pos="absolute"
+            left="-160px"
+            top="-100px"
+            maxW="300px"
+          />
+
+          <HeroSvg
+            side="right"
+            display={["none", "none", "none", "initial"]}
+            aria-label="morning person, javascript junkie"
+            pos="absolute"
+            right="-200px"
+            top="-20px"
+            maxW="300px"
+          />
           <Heading as="h1" size={["3xl", "4xl"]} mb={3}>
             Chris Haupt's
           </Heading>
@@ -176,14 +182,14 @@ export default function Hero({ setIsOpen, isOpen }: HeroProps) {
           </Heading>
           <Heading
             as="h3"
-            size="lg"
+            size="md"
             maxW={700}
             fontWeight="400"
             pb={20}
             textAlign="center"
           >
-            A collection of my frontend projects created over the years using
-            mostly <b>React</b>.
+            A collection of all the projects I've either owned or been a part of over the years, using
+            mostly <strong style={{ color: theme.colors.reactBlue }}>React</strong> and always <strong style={{ color: theme.colors.javascriptYellow }}>Javascript</strong>.
           </Heading>
         </Stack>
       </Stack>

@@ -59,6 +59,7 @@ export default function Section({ sectionData }: SectionProps) {
       marginTop="0 !important"
       _last={{ pb: 20 }}
     >
+      <ImageModal modalContent={modalContent} />
       <Divider chakraProps={{ color: chakraDividerColor }} />
       <Stack
         w="full"
@@ -70,18 +71,15 @@ export default function Section({ sectionData }: SectionProps) {
         margin="auto"
         gap={3}
       >
-        <ImageModal modalContent={modalContent} />
         <Heading as="h2" size="lg">
           {title}
         </Heading>
+        <Text as='b' fontWeight={400} fontSize="2xl" pl={5}>{sectionInfo?.duration}</Text>
         <Text maxW="600">{subtitle}</Text>
         {sectionInfo && (
           <Stack align="center" pb={5}>
             <SectionInfoBody showInfo={showInfo}>
-              <Heading as="h3" size="md" fontWeight="300" mb={3}>
-                {sectionInfo?.duration}
-              </Heading>
-              <Text align="left" fontSize="md" mb={5}>
+              <Text align="center" fontSize="md" mb={5}>
                 {sectionInfo?.description}
               </Text>
               <Grid
@@ -111,7 +109,7 @@ export default function Section({ sectionData }: SectionProps) {
                 ))}
               </Grid>
             </SectionInfoBody>
-            <Button onClick={() => setShowInfo(!showInfo)} colorScheme={color}>
+            <Button mt={5} mb={10} onClick={() => setShowInfo(!showInfo)} colorScheme={color}>
               More info
               <Icon
                 as={IoMdArrowDropright}

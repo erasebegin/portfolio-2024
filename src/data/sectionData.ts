@@ -30,13 +30,72 @@ export type Project = {
 
 const data: Project[] = [
   {
+    title: "Rradar",
+    subtitle:
+      "Creating and maintaining supporting tools for Rradar's lawyers and their clients",
+    color: "blue",
+    dividerColor: "white",
+    buttonColor: "green",
+    dividerAlt: true,
+    sectionInfo: {
+      duration: "Sep 2022 - Dec 2024",
+      description:
+        'As well as offering legal services, Rradar also has a suite of digital products and tools such as an AI assistant, a vast knowledge base of articles written by Rradar staff and tools for reporting workplace incidents. I was primarily responsible for developing and maintaining their AI assistant which had Android, iOS and web versions.',
+      tech: ["react", "next-js", "github", "jira", "sass", "react-native"],
+    },
+    cards: [
+      {
+        title: "Grace",
+        year: "2023-2024",
+        image: "./images/swansway.png",
+        description:
+          "An AI chat assistant built on top of IBM's Watson that traverses a vast database of internally created ",
+        demoUrl: "https://www.swanswaygarages.com/",
+        tech: ["vue", "nuxt", "github", "jira", "sass"],
+        modal: [
+          'Building components for use with in-house "page builder"',
+          "Biggest UK client with more than 20 dealerships located across the UK",
+          "Very tight deadlines with rapid prototyping and deployment",
+        ],
+      },
+      {
+        title: "Station",
+        year: "2022-2024",
+        image: "./images/sell-your-car-in-a-flash.png",
+        description:
+          "Valuation site incorporating complex user journey with many outcomes",
+        demoUrl: "https://www.sellyourcarinaflash.com/",
+        tech: ["vue", "nuxt", "github", "jira", "sass"],
+        modal: [
+          "Tasked with total overhaul of valuation process",
+          "Modernised and updated according to designs",
+          "Incorporated file drag-and-drop",
+          "Leveraged in-house custom framework and CMS to generate forms and styling",
+        ],
+      },
+      {
+        title: "World Properties",
+        year: "2022",
+        image: "./images/aab-cars.png",
+        description:
+          "Solo project cloning and customising a template to meet client needs",
+        demoUrl: "https://aabcars.pre.nexuspointdev.co.uk/",
+        tech: ["vue", "nuxt", "github", "jira", "sass"],
+        modal: [
+          "Leveraged custom in-house styling framework and design patterns",
+          "Total overhaul of home hero design",
+          "New bespoke components to meet client needs e.g. sticky valuation form",
+          "implementing 3rd-party apis such as Trustpilot",
+        ],
+      },
+    ],
+  }, {
     title: "Nexus Point",
     subtitle:
       "Creating ecommerce platforms and services for automotive retailers",
     color: "green",
-    dividerColor: "white",
+    dividerColor: "blue",
     buttonColor: "green",
-    dividerAlt: true,
     sectionInfo: {
       duration: "Feb 2022 - Aug 2022",
       description:
