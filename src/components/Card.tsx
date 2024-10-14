@@ -26,6 +26,7 @@ interface PortfolioCardProps {
     list?: string[];
     image: string;
     tech?: string[];
+    description?: string;
   }) => void;
   sectionColor: string;
 }
@@ -41,11 +42,11 @@ export default function PortfolioCard({
   const cardBg = useColorModeValue("white", "gray.900");
 
   function handleClick() {
-    setModalContent({ list: modal, image, tech });
+    setModalContent({ list: modal, image, tech, description });
   }
 
   return (
-    <Box bg={cardBg} pos="relative">
+    <Box bg={cardBg} pos="relative" rounded="md" overflow="hidden">
       <Image
         h="180"
         w="full"
@@ -64,7 +65,6 @@ export default function PortfolioCard({
           fontWeight="500"
           pos="absolute"
           top="134"
-          shadow="md"
           right="0"
           p={2}
           borderRadius="10px 0 0 0"
@@ -75,25 +75,10 @@ export default function PortfolioCard({
 
       {/* CARD BOTTOM */}
       <Stack p="5" gap={3}>
-        <Heading as="h5" size="md">
+        <Heading as="h5" size="md" pb={3}>
           {title}
         </Heading>
-        <Text
-          dangerouslySetInnerHTML={{
-            __html: description,
-          }}
-          pb={16}
-        />
-        <Flex
-          justify="center"
-          w="full"
-          gap={3}
-          pos="absolute"
-          bottom="1rem"
-          left="50%"
-          transform="translateX(-50%)"
-          overflowX="auto"
-        >
+        <Flex justify="center" w="full" gap={3}>
           {demoUrl && (
             <a href={demoUrl} rel="noopener noreferrer" target="_blank">
               <Button color="primary" type="button">

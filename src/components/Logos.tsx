@@ -1,7 +1,8 @@
 import styled from "@emotion/styled";
 import { css } from "@emotion/react";
-import { useMediaQuery } from "@chakra-ui/react";
+import { useMediaQuery, Text, Box, Image } from "@chakra-ui/react";
 import { logoArr } from "../data/logos";
+import { useState } from "react";
 
 interface LogosProps {
   showLogos: boolean;
@@ -10,19 +11,45 @@ interface LogosProps {
 interface CircleArrangementProps {
   $show: boolean;
   $isMobile: boolean;
+  $totalLogos: number;
 }
 
 export default function Logos({ showLogos }: LogosProps) {
   const [isMobile] = useMediaQuery("(max-width: 48em)");
+  const [currentHovered, setCurrentHovered] = useState<string>();
+  const totalNumberOfLogos = logoArr?.length || 0;
 
   return (
-    <CircleArrangement $show={showLogos} $isMobile={isMobile}>
-      {logoArr.map((logo, idx) => (
-        <li key={`tech-logo-${idx}`}>
-          <img src={`/images/logos/${logo}.svg`} alt={`${logo} logo`} />
-          <p>{logo}</p>
-        </li>
-      ))}
+    <CircleArrangement
+      $show={showLogos}
+      $isMobile={isMobile}
+      $totalLogos={totalNumberOfLogos}
+    >
+      {logoArr.map((logo, idx) => {
+        return (
+          <li key={`tech-logo-${idx}`}>
+            <Box
+              pos="relative"
+              onMouseOver={() => setCurrentHovered(logo)}
+              onMouseOut={() => setCurrentHovered("")}
+            >
+              <img src={`/images/logos/${logo}.svg`} alt={`${logo} logo`} />
+              <Text
+                pos="absolute"
+                opacity={logo === currentHovered ? 1 : 0}
+                transition="200ms ease-in"
+                bg="green.100"
+                left={idx < totalNumberOfLogos / 2 ? "-50%" : "50%"}
+                bottom="-40px"
+                rounded="md"
+                px={2}
+              >
+                {logo}
+              </Text>
+            </Box>
+          </li>
+        );
+      })}
     </CircleArrangement>
   );
 }
@@ -38,17 +65,18 @@ function generateCircleLayout(
   itemSize: string,
   options?: GenerateCircleLayoutOptions,
 ) {
-  let rotation = options?.half ? 133 : 0;
-  let angle = options?.half ? 180 / itemCount : 360 / itemCount;
-  let divideBy = options?.toggle ? 1.2 : 2;
+  let rotation = options?.half ? 127 : 20;
+  const angle = options?.half ? 180 / itemCount : 360 / itemCount;
+  const divideBy = options?.toggle ? 1.2 : 2;
   let transformationString = "";
 
   for (let i = 0; i < itemCount + 1; i++) {
     rotation += angle;
     transformationString += `
       &:nth-of-type(${i}) {
-        transform: rotate(${rotation}deg) translate(${parseInt(circleSize) / divideBy
-      }px) rotate(${rotation * -1}deg);
+        transform: rotate(${rotation}deg) translate(${
+          parseInt(circleSize) / divideBy
+        }px) rotate(${rotation * -1}deg);
         transition: 200ms;
       }
     `;
@@ -61,6 +89,11 @@ function generateCircleLayout(
     img {
       width: ${itemSize};
       height: ${itemSize};
+
+      &:hover {
+        transform: scale(1.2);
+        transition: 200ms ease-in-out;
+      }
     }
 
     > * {
@@ -82,18 +115,21 @@ function generateCircleLayout(
 const CircleArrangement = styled.ul<CircleArrangementProps>`
   ${(props) => {
     if (props.$isMobile) {
-      return generateCircleLayout(10, "190px", "35px", { toggle: props.$show });
+      return generateCircleLayout(props.$totalLogos, "190px", "35px", {
+        toggle: props.$show,
+      });
     }
-    return generateCircleLayout(10, "300px", "50px", { toggle: props.$show });
+    return generateCircleLayout(props.$totalLogos, "250px", "50px", {
+      toggle: props.$show,
+    });
   }}
 
   list-style: none;
   padding: 0;
   border-radius: 50%;
   position: absolute;
-  left: 50%;
+  left: 47%;
   top: 45%;
   transform: translate(-50%, -50%);
   z-index: -1;
-  pointer-events: none;
 `;

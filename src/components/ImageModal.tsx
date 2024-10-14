@@ -4,24 +4,27 @@ import BgBlur from "./BgBlur";
 import { Box, Flex, Text, useColorModeValue } from "@chakra-ui/react";
 import TechIcon from "./TechIcon";
 
-interface ModalContent {
+export interface ModalContent {
   image?: string;
   tech?: string[];
   list?: string[];
+  description?: string;
 }
 
 interface ImageModalProps {
-  modalContent: ModalContent;
+  modalContent?: ModalContent;
 }
 
-export default function ImageModal({ modalContent }: ImageModalProps) {
+const ImageModal: React.FC<ImageModalProps> = ({ modalContent }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const { image, tech, list, description } = modalContent ?? {};
 
   const modalBg = useColorModeValue("blue.100", "gray.500");
   const detailBg1 = useColorModeValue("blue.200", "gray.700");
   const detailBg2 = useColorModeValue("blue.300", "gray.600");
 
   useEffect(() => {
+    if (!modalContent) return;
     if (Object.keys(modalContent).length > 0) {
       setIsOpen(true);
     }
@@ -42,16 +45,19 @@ export default function ImageModal({ modalContent }: ImageModalProps) {
       <BgBlur show={isOpen} onClick={() => setIsOpen(false)} />
       <InnerContainer shadow="lg" bg={modalBg}>
         {modalContent?.image && (
-          <img src={modalContent.image} alt="website project screenshot" />
+          <img src={image} alt="website project screenshot" />
         )}
-        {modalContent.list && (
-          <Box p={5}>
+        <Text px={3} py={5}>
+          {description}
+        </Text>
+        {list && (
+          <Box p={5} pt={description ? 0 : 5}>
             <Flex justify="center" pb={5} gap={5}>
-              {modalContent.tech?.map((type, idx) => (
+              {tech?.map((type, idx) => (
                 <TechIcon key={idx} type={type} labelColor={detailBg2} />
               ))}
             </Flex>
-            {modalContent.list?.map((item, index) => (
+            {list?.map((item, index) => (
               <Text
                 key={index}
                 align="left"
@@ -67,7 +73,7 @@ export default function ImageModal({ modalContent }: ImageModalProps) {
       </InnerContainer>
     </ModalContainer>
   );
-}
+};
 
 const ModalContainer = styled.div<{ $isOpen: boolean }>`
   position: fixed;
@@ -105,3 +111,5 @@ const InnerContainer = styled(Box)`
     object-fit: cover;
   }
 `;
+
+export default ImageModal;

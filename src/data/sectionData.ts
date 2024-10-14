@@ -1,4 +1,4 @@
-export type ProjectSection = {
+export type ProjectCard = {
   title: string;
   year?: string;
   image: string;
@@ -9,38 +9,73 @@ export type ProjectSection = {
   modal?: string[];
 };
 
-type SectionInfo = {
+type ProjectSectionInfo = {
   duration: string;
   description: string;
   tech: string[];
 };
 
-export type Project = {
+export type ProjectSection = {
   title: string;
   subtitle?: string;
   color: string;
   dividerColor: string;
   buttonColor: string;
-  dividerAlt?: boolean;
-  sectionInfo?: SectionInfo;
-  cards: ProjectSection[];
+  feature?: boolean;
+  sectionInfo?: ProjectSectionInfo;
+  cards: ProjectCard[];
   columns?: number;
   externalUrl?: string;
 };
 
-const data: Project[] = [
+const data: ProjectSection[] = [
+  {
+    title: "Savisoft",
+    subtitle:
+      "Leading a team to create large, complex software products for Guardians Ad Litem and similar court-centric roles in the German market",
+    color: "green",
+    dividerColor: "white",
+    buttonColor: "green",
+    feature: true,
+    sectionInfo: {
+      duration: "Sep 2022 - Dec 2024",
+      description: `
+        <p>For the past two years, I’ve led the development of a highly complex project, transforming it from an early-stage concept into a fully functional product, complete with advanced features. Initially, the project was little more than a collection of rough ideas and sketches. Together with the CEO, we mapped out the full scope, including technical architecture, data structures, and even the go-to-market strategy. Once the vision was clear, I took ownership of choosing the tech stack, designing the system architecture, and writing the core code that would serve as the foundation.</p>
+
+        <p>As the project evolved, I oversaw the onboarding of market researchers, designers, illustrators, and developers, coordinating a multidisciplinary team while ensuring alignment with our overarching goals. With the CEO focused on other commitments, I took full responsibility for day-to-day decision-making and project management, consistently delivering detailed updates and driving the project forward.</p>
+
+        <p>Navigating the complexities of this initiative required making tough, often critical decisions. While we faced unforeseen challenges, each hurdle presented a learning opportunity, and I worked to find solutions that kept us on track. Today, the project stands as a near-complete product and is slated for launch in early 2025. It’s a testament to the dedication, problem-solving, and strategic thinking that went into every stage of its development.</p>
+      `,
+      tech: ["next-js", "github", "jira", "chakra", "prisma", "supabase"],
+    },
+    cards: [
+      {
+        title: "Savicase",
+        year: "2023-2024",
+        image: "./images/savicase.jpg",
+        description:
+          "An AI chat assistant built on top of IBM's Watson that traverses a vast database of internally created ",
+        demoUrl: "https://www.swanswaygarages.com/",
+        tech: ["vue", "nuxt", "github", "jira", "sass"],
+        modal: [
+          'Building components for use with in-house "page builder"',
+          "Biggest UK client with more than 20 dealerships located across the UK",
+          "Very tight deadlines with rapid prototyping and deployment",
+        ],
+      },
+    ],
+  },
   {
     title: "Rradar",
     subtitle:
       "Creating and maintaining supporting tools for Rradar's lawyers and their clients",
     color: "blue",
-    dividerColor: "white",
-    buttonColor: "green",
-    dividerAlt: true,
+    dividerColor: "green",
+    buttonColor: "blue",
     sectionInfo: {
       duration: "Sep 2022 - Dec 2024",
       description:
-        'As well as offering legal services, Rradar also has a suite of digital products and tools such as an AI assistant, a vast knowledge base of articles written by Rradar staff and tools for reporting workplace incidents. I was primarily responsible for developing and maintaining their AI assistant which had Android, iOS and web versions.',
+        "As well as offering legal services, Rradar also has a suite of digital products and tools such as an AI assistant, a vast knowledge base of articles written by Rradar staff and tools for reporting workplace incidents. I was primarily responsible for developing and maintaining their AI assistant which had Android, iOS and web versions.",
       tech: ["react", "next-js", "github", "jira", "sass", "react-native"],
     },
     cards: [
@@ -89,11 +124,13 @@ const data: Project[] = [
         ],
       },
     ],
-  }, {
+  },
+  {
     title: "Nexus Point",
     subtitle:
       "Creating ecommerce platforms and services for automotive retailers",
     color: "green",
+    columns: 5,
     dividerColor: "blue",
     buttonColor: "green",
     sectionInfo: {
@@ -186,7 +223,6 @@ const data: Project[] = [
     color: "blue",
     dividerColor: "green",
     buttonColor: "green",
-    dividerAlt: false,
     columns: 4,
     sectionInfo: {
       duration: "Feb 2021 - Present",
@@ -486,8 +522,7 @@ const data: Project[] = [
         year: "2021",
         description:
           "A small project to get comfortable with the Firebase/Firestore API",
-        image:
-          "https://camo.githubusercontent.com/ff941841c0c04cd536ce9f83910310885cb33f95f01377c243c676a1a1cb3d6b/68747470733a2f2f692e6962622e636f2f67333538445a372f696d6167652e706e67",
+        image: "./images/url_shortener.jpg",
         demoUrl: "https://firebase-url-shortener.netlify.app/",
         repoUrl: "https://github.com/erasebegin/url-shortener/",
       },

@@ -1,5 +1,8 @@
 export const logoArr = [
   // "firebase",
+  "supabase",
+  "prisma",
+  "react-native",
   "react",
   "graphql",
   "chakra",

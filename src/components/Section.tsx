@@ -14,40 +14,26 @@ import {
   useTheme,
 } from "@chakra-ui/react";
 import Card from "./Card";
-import ImageModal from "./ImageModal";
+import ImageModal, { ModalContent } from "./ImageModal";
 import Divider from "./Divider";
 import TechIcon from "./TechIcon";
-import { Project } from "../data/sectionData";
+import { ProjectSection } from "../data/sectionData";
 import { getDividerColor } from "../utils";
 
 interface SectionProps {
-  sectionData: Project;
-}
-
-interface CardData {
-  title: string;
-  description: string;
-  image: string;
-  tech?: string[];
+  sectionData: ProjectSection;
 }
 
 export default function Section({ sectionData }: SectionProps) {
-  const {
-    cards,
-    title,
-    subtitle,
-    color,
-    dividerColor,
-    sectionInfo,
-    columns,
-  } = sectionData || {};
+  const { cards, title, subtitle, color, dividerColor, sectionInfo, columns } =
+    sectionData || {};
 
-  const [modalContent, setModalContent] = useState<CardData | {}>({});
+  const [modalContent, setModalContent] = useState<ModalContent>();
   const [showInfo, setShowInfo] = useState(false);
   const theme = useTheme();
   const shade = useColorModeValue("100", "800");
 
-  const chakraDividerColor = getDividerColor(dividerColor, shade, theme)
+  const chakraDividerColor = getDividerColor(dividerColor, shade, theme);
 
   return (
     <Box
@@ -74,8 +60,10 @@ export default function Section({ sectionData }: SectionProps) {
         <Heading as="h2" size="lg">
           {title}
         </Heading>
-        <Text as='b' fontWeight={400} fontSize="2xl" pl={5}>{sectionInfo?.duration}</Text>
-        <Text maxW="600">{subtitle}</Text>
+        <Text as="b" fontWeight={400} fontSize="2xl" pl={5}>
+          {sectionInfo?.duration}
+        </Text>
+        <Text maxW="700">{subtitle}</Text>
         {sectionInfo && (
           <Stack align="center" pb={5}>
             <SectionInfoBody showInfo={showInfo}>
@@ -100,16 +88,22 @@ export default function Section({ sectionData }: SectionProps) {
                   <GridItem key={type}>
                     <TechIcon
                       type={type}
-                      labelColor={`${color}.${parseInt(shade) < 300
-                        ? parseInt(shade) + 500
-                        : parseInt(shade) - 400
-                        }`}
+                      labelColor={`${color}.${
+                        parseInt(shade) < 300
+                          ? parseInt(shade) + 500
+                          : parseInt(shade) - 400
+                      }`}
                     />
                   </GridItem>
                 ))}
               </Grid>
             </SectionInfoBody>
-            <Button mt={5} mb={10} onClick={() => setShowInfo(!showInfo)} colorScheme={color}>
+            <Button
+              mt={5}
+              mb={10}
+              onClick={() => setShowInfo(!showInfo)}
+              colorScheme={color}
+            >
               More info
               <Icon
                 as={IoMdArrowDropright}
@@ -135,10 +129,11 @@ export default function Section({ sectionData }: SectionProps) {
             <Card
               key={`main-section-card-${index}`}
               data={cardData}
-              sectionColor={`${color}.${parseInt(shade) < 300
-                ? parseInt(shade) + 500
-                : parseInt(shade) - 400
-                }`}
+              sectionColor={`${color}.${
+                parseInt(shade) < 300
+                  ? parseInt(shade) + 500
+                  : parseInt(shade) - 400
+              }`}
               setModalContent={setModalContent}
             />
           ))}
@@ -161,7 +156,7 @@ const SectionInfoBody = styled.div<SectionInfoBodyProps>`
   transition: 400ms ease-in-out;
 
   p {
-    max-width: 600px;
+    max-width: 700px;
     padding-bottom: 1rem;
   }
 
