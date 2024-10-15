@@ -14,7 +14,7 @@ import {
 import Divider from "./Divider";
 import TechIcon from "./TechIcon";
 import { ProjectSection } from "../data/sectionData";
-import { getDividerColor } from "../utils";
+import { getDividerColor, getGradient } from "../utils";
 
 interface SectionProps {
   sectionData: ProjectSection;
@@ -34,9 +34,10 @@ export default function SectionFeatured({ sectionData }: SectionProps) {
       as="section"
       pos="relative"
       pt={32}
+      pb={16}
       w="full"
       px={10}
-      bg={`${color}.${shade}`}
+      backgroundImage={getGradient(color)}
     >
       <Divider chakraProps={{ color: chakraDividerColor }} />
 
@@ -59,6 +60,7 @@ export default function SectionFeatured({ sectionData }: SectionProps) {
         gap={7}
         bg="green.50"
         shadow="lg"
+        overflow="visible"
       >
         <Image
           src={cards[0].image}
@@ -71,9 +73,14 @@ export default function SectionFeatured({ sectionData }: SectionProps) {
         <Stack maxW="500px">
           {sectionInfo && (
             <Stack align="center" pb={5}>
-              <SectionInfoBody showInfo={true}>
+              <Stack gap={3}>
                 <Box
                   dangerouslySetInnerHTML={{ __html: sectionInfo?.description }}
+                  sx={{
+                    p: {
+                      mb: 5,
+                    },
+                  }}
                   fontSize="md"
                   mb={5}
                   pt={5}
@@ -96,6 +103,7 @@ export default function SectionFeatured({ sectionData }: SectionProps) {
                     <GridItem key={type}>
                       <TechIcon
                         type={type}
+                        labelTop={false}
                         labelColor={`${color}.${
                           parseInt(shade) < 300
                             ? parseInt(shade) + 500
@@ -105,7 +113,7 @@ export default function SectionFeatured({ sectionData }: SectionProps) {
                     </GridItem>
                   ))}
                 </Grid>
-              </SectionInfoBody>
+              </Stack>
             </Stack>
           )}
         </Stack>
@@ -123,25 +131,3 @@ export default function SectionFeatured({ sectionData }: SectionProps) {
     </Box>
   );
 }
-
-interface SectionInfoBodyProps {
-  showInfo: boolean;
-}
-
-const SectionInfoBody = styled.div<SectionInfoBodyProps>`
-  text-align: center;
-  max-height: ${(props) => (props.showInfo ? "1000px" : 0)};
-  opacity: ${(props) => (props.showInfo ? 1 : 0)};
-  padding-bottom: ${(props) => (props.showInfo ? "1rem" : 0)};
-  overflow: hidden;
-  transition: 400ms ease-in-out;
-
-  p {
-    max-width: 700px;
-    padding-bottom: 1rem;
-  }
-
-  h4 {
-    font-weight: bold;
-  }
-`;

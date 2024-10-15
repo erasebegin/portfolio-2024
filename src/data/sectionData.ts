@@ -223,7 +223,7 @@ const data: ProjectSection[] = [
     color: "blue",
     dividerColor: "green",
     buttonColor: "green",
-    columns: 4,
+    columns: 5,
     sectionInfo: {
       duration: "Feb 2021 - Present",
       description:
@@ -238,6 +238,22 @@ const data: ProjectSection[] = [
       ],
     },
     cards: [
+      {
+        title: "Yoga Veeras Portal",
+        year: "2024",
+        image: "./images/yoga-veeras-portal.jpg",
+        description:
+          "A social-media-like profile page backed by a dashboard that allows users to manage events and profile content",
+        demoUrl: "https://mypage.savesoil.cc/dashboard/#/",
+        tech: ["react", "styled-components", "bitbucket", "material-ui"],
+        modal: [
+          "Material UI paired with Emotion used for styling",
+          "CRUD operations on SQL database using PHP-based REST backend",
+          "Created entirely from scratch by two-person team including myself",
+          "Created as SPA using Create React App",
+          "Using Context API and localStorage for session persistence",
+        ],
+      },
       {
         title: "Planet Champion Dashboard",
         year: "2022",

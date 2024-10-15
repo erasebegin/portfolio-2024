@@ -5,9 +5,10 @@ import { Text } from "@chakra-ui/react";
 interface IconProps {
   type: string;
   labelColor: string;
+  labelTop?: boolean;
 }
 
-export default function Icon({ type, labelColor }: IconProps) {
+export default function Icon({ type, labelColor, labelTop = true }: IconProps) {
   const typeSplit = type.split("-").join(" ");
   const [show, setShow] = useState(false);
 
@@ -16,6 +17,7 @@ export default function Icon({ type, labelColor }: IconProps) {
       onMouseEnter={() => setShow(true)}
       onMouseLeave={() => setShow(false)}
       show={show}
+      labelTop={labelTop}
     >
       <img src={`./images/logos/${type}.svg`} alt={`${type} icon`} />
       <Text bg={labelColor}>{typeSplit}</Text>
@@ -25,6 +27,7 @@ export default function Icon({ type, labelColor }: IconProps) {
 
 interface IconContainerProps {
   show: boolean;
+  labelTop: boolean;
 }
 
 const IconContainer = styled.div<IconContainerProps>`
@@ -44,7 +47,8 @@ const IconContainer = styled.div<IconContainerProps>`
   p {
     font-size: 0.75rem;
     position: absolute;
-    top: -3rem;
+    top: ${({ labelTop }) => (labelTop ? "-3rem" : "unset")};
+    bottom: ${({ labelTop }) => (labelTop ? "unset" : "-3rem")};
     left: 50%;
     transform: translateX(-50%);
     color: white;

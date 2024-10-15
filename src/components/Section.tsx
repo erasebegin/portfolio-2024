@@ -18,7 +18,7 @@ import ImageModal, { ModalContent } from "./ImageModal";
 import Divider from "./Divider";
 import TechIcon from "./TechIcon";
 import { ProjectSection } from "../data/sectionData";
-import { getDividerColor } from "../utils";
+import { getDividerColor, getGradient } from "../utils";
 
 interface SectionProps {
   sectionData: ProjectSection;
@@ -41,7 +41,7 @@ export default function Section({ sectionData }: SectionProps) {
       pos="relative"
       w="full"
       px={10}
-      bg={`${color}.${shade}`}
+      backgroundImage={getGradient(color)}
       marginTop="0 !important"
       _last={{ pb: 20 }}
     >
