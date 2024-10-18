@@ -2,6 +2,8 @@ export type ProjectCard = {
   title: string;
   year?: string;
   image: string;
+  // for featured sections only, this should be updated to an array of images eventually
+  image2?: string;
   description: string;
   demoUrl?: string;
   repoUrl?: string;
@@ -53,6 +55,7 @@ const data: ProjectSection[] = [
         title: "Savicase",
         year: "2023-2024",
         image: "./images/savicase.jpg",
+        image2: "./images/savicase2.jpg",
         description:
           "An AI chat assistant built on top of IBM's Watson that traverses a vast database of internally created ",
         demoUrl: "https://www.swanswaygarages.com/",
@@ -424,6 +427,7 @@ const data: ProjectSection[] = [
     color: "blue",
     dividerColor: "green",
     buttonColor: "green",
+    columns: 4,
     sectionInfo: {
       duration: "Jan 2019 - Present",
       description:

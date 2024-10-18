@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { css } from "@emotion/react";
-import { useMediaQuery, Text, Box, Image } from "@chakra-ui/react";
+import { useMediaQuery, Text, Box } from "@chakra-ui/react";
 import { logoArr } from "../data/logos";
 import { useState } from "react";
 
@@ -35,6 +35,7 @@ export default function Logos({ showLogos }: LogosProps) {
             >
               <img src={`/images/logos/${logo}.svg`} alt={`${logo} logo`} />
               <Text
+                pointerEvents="none"
                 pos="absolute"
                 opacity={logo === currentHovered ? 1 : 0}
                 transition="200ms ease-in"

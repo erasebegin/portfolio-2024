@@ -1,5 +1,6 @@
 export const logoArr = [
   // "firebase",
+  "tailwind",
   "supabase",
   "prisma",
   "react-native",

@@ -52,8 +52,8 @@ export default function Section({ sectionData }: SectionProps) {
         maxW="1200px"
         align="center"
         marginTop="0 !important"
-        pt={32}
-        pb={20}
+        pt={40}
+        pb={32}
         margin="auto"
         gap={3}
       >
@@ -129,6 +129,7 @@ export default function Section({ sectionData }: SectionProps) {
             <Card
               key={`main-section-card-${index}`}
               data={cardData}
+              columns={columns || 3}
               sectionColor={`${color}.${
                 parseInt(shade) < 300
                   ? parseInt(shade) + 500

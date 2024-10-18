@@ -4,7 +4,6 @@ import {
   Flex,
   Button,
   Image,
-  Box,
   Heading,
   Stack,
   useColorModeValue,
@@ -29,12 +28,14 @@ interface PortfolioCardProps {
     description?: string;
   }) => void;
   sectionColor: string;
+  columns: number;
 }
 
 export default function PortfolioCard({
   data,
   setModalContent,
   sectionColor,
+  columns,
 }: PortfolioCardProps) {
   const { title, description, image, repoUrl, demoUrl, modal, tech, year } =
     data ?? {};
@@ -46,7 +47,14 @@ export default function PortfolioCard({
   }
 
   return (
-    <Box bg={cardBg} pos="relative" rounded="md" overflow="hidden">
+    <Stack
+      bg={cardBg}
+      pos="relative"
+      rounded="md"
+      overflow="hidden"
+      h="350"
+      shadow="md"
+    >
       <Image
         h="180"
         w="full"
@@ -74,16 +82,16 @@ export default function PortfolioCard({
       )}
 
       {/* CARD BOTTOM */}
-      <Stack p="5" gap={3}>
+      <Stack flex="1" p="5" gap={3} h="full" justify="space-between">
         <Heading as="h5" size="md" pb={3}>
           {title}
         </Heading>
-        <Flex justify="center" w="full" gap={3}>
+        <Flex justify="center" align="end" w="full" gap={3}>
           {demoUrl && (
             <a href={demoUrl} rel="noopener noreferrer" target="_blank">
               <Button color="primary" type="button">
-                <Icon as={BiLinkExternal} mr={3} />
-                View
+                <Icon as={BiLinkExternal} mr={columns >= 5 ? 0 : 3} />
+                {columns >= 5 ? "" : "View"}
               </Button>
             </a>
           )}
@@ -99,6 +107,6 @@ export default function PortfolioCard({
           )}
         </Flex>
       </Stack>
-    </Box>
+    </Stack>
   );
 }
