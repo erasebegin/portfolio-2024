@@ -1,5 +1,4 @@
 export const logoArr = [
-  // "firebase",
   "tailwind",
   "supabase",
   "prisma",
@@ -12,5 +11,5 @@ export const logoArr = [
   "sass",
   "github",
   "vue",
-  // "nuxt",
+  "react-query",
 ];

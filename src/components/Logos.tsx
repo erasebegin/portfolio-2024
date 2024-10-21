@@ -3,6 +3,7 @@ import { css } from "@emotion/react";
 import { useMediaQuery, Text, Box } from "@chakra-ui/react";
 import { logoArr } from "../data/logos";
 import { useState } from "react";
+import { kebabToTitleCase } from "../utils";
 
 interface LogosProps {
   showLogos: boolean;
@@ -45,7 +46,7 @@ export default function Logos({ showLogos }: LogosProps) {
                 rounded="md"
                 px={2}
               >
-                {logo}
+                {kebabToTitleCase(logo)}
               </Text>
             </Box>
           </li>

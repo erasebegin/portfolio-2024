@@ -1,6 +1,7 @@
 import { useState } from "react";
 import styled from "@emotion/styled";
 import { Text } from "@chakra-ui/react";
+import { kebabToTitleCase } from "../utils";
 
 interface IconProps {
   type: string;
@@ -9,7 +10,6 @@ interface IconProps {
 }
 
 export default function Icon({ type, labelColor, labelTop = true }: IconProps) {
-  const typeSplit = type.split("-").join(" ");
   const [show, setShow] = useState(false);
 
   return (
@@ -20,7 +20,7 @@ export default function Icon({ type, labelColor, labelTop = true }: IconProps) {
       labelTop={labelTop}
     >
       <img src={`./images/logos/${type}.svg`} alt={`${type} icon`} />
-      <Text bg={labelColor}>{typeSplit}</Text>
+      <Text bg={labelColor}>{kebabToTitleCase(type)}</Text>
     </IconContainer>
   );
 }

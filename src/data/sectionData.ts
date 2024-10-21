@@ -48,7 +48,14 @@ const data: ProjectSection[] = [
 
         <p>Navigating the complexities of this initiative required making tough, often critical decisions. While we faced unforeseen challenges, each hurdle presented a learning opportunity, and I worked to find solutions that kept us on track. Today, the project stands as a near-complete product and is slated for launch in early 2025. It’s a testament to the dedication, problem-solving, and strategic thinking that went into every stage of its development.</p>
       `,
-      tech: ["next-js", "github", "jira", "chakra", "prisma", "supabase"],
+      tech: [
+        "next-js",
+        "github",
+        "chakra",
+        "prisma",
+        "supabase",
+        "react-query",
+      ],
     },
     cards: [
       {
@@ -85,30 +92,29 @@ const data: ProjectSection[] = [
       {
         title: "Grace",
         year: "2023-2024",
-        image: "./images/swansway.png",
+        image: "./images/grace.jpeg",
         description:
-          "An AI chat assistant built on top of IBM's Watson that traverses a vast database of internally created ",
+          "An AI chat assistant built on top of IBM's Watson that interprets natural language prompts and then traverses a vast database of internally created articles to extract relevant information",
         demoUrl: "https://www.swanswaygarages.com/",
-        tech: ["vue", "nuxt", "github", "jira", "sass"],
+        tech: ["vue", "nuxt", "github", "jira", "sass", "react-query"],
         modal: [
-          'Building components for use with in-house "page builder"',
-          "Biggest UK client with more than 20 dealerships located across the UK",
-          "Very tight deadlines with rapid prototyping and deployment",
+          "Worked with websockets to implement live chat functionality",
+          "Translated designs to React Native code whilst navigating the marketing vs. development battlefield",
+          "Implemented custom html renderer that can be controlled by the external application code by dynamically injecting ids into the html",
         ],
       },
       {
         title: "Station",
         year: "2022-2024",
-        image: "./images/sell-your-car-in-a-flash.png",
+        image: "./images/station.png",
         description:
-          "Valuation site incorporating complex user journey with many outcomes",
-        demoUrl: "https://www.sellyourcarinaflash.com/",
-        tech: ["vue", "nuxt", "github", "jira", "sass"],
+          "A limited access collection of legal articles provided as part of rradar's legal insurance policy. I was part of a team tasked with rebuilding the legacy system in a more modern and performant stack.",
+        demoUrl: "https://station.rradar.com/",
+        tech: ["react", "rspack", "github", "jira", "sass"],
         modal: [
-          "Tasked with total overhaul of valuation process",
-          "Modernised and updated according to designs",
-          "Incorporated file drag-and-drop",
-          "Leveraged in-house custom framework and CMS to generate forms and styling",
+          "Assisted in creation of custom framework built from the ground up using vanilla React and rspack",
+          "Worked closely with design team and marketing team to come up with solutions to long-standing issues with previous version of site",
+          "Built component diagrams for every page to have a clearer overview of required components and whether they would need to be available to a single component, a single page, site-wide, or included in our standard library to be used across all applications.",
         ],
       },
       {
@@ -118,7 +124,7 @@ const data: ProjectSection[] = [
         description:
           "Solo project cloning and customising a template to meet client needs",
         demoUrl: "https://aabcars.pre.nexuspointdev.co.uk/",
-        tech: ["vue", "nuxt", "github", "jira", "sass"],
+        tech: ["react", "stitches", "github", "jira", "sass"],
         modal: [
           "Leveraged custom in-house styling framework and design patterns",
           "Total overhaul of home hero design",
@@ -238,6 +244,8 @@ const data: ProjectSection[] = [
         "bootstrap",
         "bitbucket",
         "material-ui",
+        "tailwind",
+        "next-js",
       ],
     },
     cards: [
@@ -246,15 +254,16 @@ const data: ProjectSection[] = [
         year: "2024",
         image: "./images/yoga-veeras-portal.jpg",
         description:
-          "A social-media-like profile page backed by a dashboard that allows users to manage events and profile content",
-        demoUrl: "https://mypage.savesoil.cc/dashboard/#/",
-        tech: ["react", "styled-components", "bitbucket", "material-ui"],
+          "A portal for yoga teachers to be able to download course materials to host online sessions",
+        demoUrl: "https://www.veeras.yoga",
+        tech: ["next-js", "tailwind", "github", "supabase"],
         modal: [
-          "Material UI paired with Emotion used for styling",
-          "CRUD operations on SQL database using PHP-based REST backend",
-          "Created entirely from scratch by two-person team including myself",
-          "Created as SPA using Create React App",
-          "Using Context API and localStorage for session persistence",
+          "Planned, designed and built by myself",
+          "Collaborated with several yoga features to build the best possible tool for their needs",
+          "Uses Next App Router for improved code readability and project structure",
+          "Utilises React Server Components to generate as much as possible on the server side",
+          "Accommodates 6 languages with instant language switching using a system devised entirely by myself",
+          "Uses a combination of storage buckets on Supabase in combination with Hygraph CMS to allow teachers to modify the site content themselves",
         ],
       },
       {
