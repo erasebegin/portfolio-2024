@@ -31,9 +31,13 @@ export default function Section({ sectionData }: SectionProps) {
   const [modalContent, setModalContent] = useState<ModalContent>();
   const [showInfo, setShowInfo] = useState(false);
   const theme = useTheme();
-  const shade = useColorModeValue("100", "800");
+  const shade = useColorModeValue("light", "dark");
 
-  const chakraDividerColor = getDividerColor(dividerColor, shade, theme);
+  const chakraDividerColor = getDividerColor(
+    dividerColor,
+    shade === "light" ? "100" : "800",
+    theme,
+  );
 
   return (
     <Box
@@ -41,7 +45,7 @@ export default function Section({ sectionData }: SectionProps) {
       pos="relative"
       w="full"
       px={10}
-      backgroundImage={getGradient(color)}
+      backgroundImage={getGradient(color, shade)}
       marginTop="0 !important"
       _last={{ pb: 20 }}
     >

@@ -24,15 +24,18 @@ interface FooterProps {
 
 export default function Footer({ setOpenContact }: FooterProps) {
   const theme = useTheme();
-  const shade = useColorModeValue("100", "800");
+  const shade = useColorModeValue("light", "dark");
 
-  const chakraDividerColor = getDividerColor('yellow', shade, theme)
-  console.log({ chakraDividerColor, shade })
+  const chakraDividerColor = getDividerColor(
+    "yellow",
+    shade === "light" ? "100" : "800",
+    theme,
+  );
 
   return (
     <Box
       as="footer"
-      bg={theme.colors.yellow[300]}
+      bg={shade === "light" ? "yellow.400" : "gray.700"}
       pos="relative"
       w="full"
       pt={32}
@@ -69,7 +72,8 @@ export default function Footer({ setOpenContact }: FooterProps) {
       </Flex>
       <Flex justify="center" align="center" mt={3}>
         <Text mb={0}>
-          Created using <strong style={{ color: theme.colors.reactBlue }}>React</strong>
+          Created using{" "}
+          <strong style={{ color: theme.colors.reactBlue }}>React</strong>
         </Text>
         <Box mx={1}>
           <GrReactjs size="2rem" color={theme.colors.reactBlue} />

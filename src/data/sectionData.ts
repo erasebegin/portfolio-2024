@@ -86,7 +86,16 @@ const data: ProjectSection[] = [
       duration: "Sep 2022 - Dec 2024",
       description:
         "As well as offering legal services, Rradar also has a suite of digital products and tools such as an AI assistant, a vast knowledge base of articles written by Rradar staff and tools for reporting workplace incidents. I was primarily responsible for developing and maintaining their AI assistant which had Android, iOS and web versions.",
-      tech: ["react", "next-js", "github", "jira", "sass", "react-native"],
+      tech: [
+        "react",
+        "next-js",
+        "github",
+        "jira",
+        "sass",
+        "react-native",
+        "vue",
+        "react-query",
+      ],
     },
     cards: [
       {
@@ -366,11 +375,9 @@ const data: ProjectSection[] = [
         image: "./images/halder.png",
         demoUrl: "https://halder.eu",
         modal: [
-          "Project created from scratch, large enough that whole team was involved",
-          "Reasonable deadlines were given and tasks divided by time to complete and story points, then assigned during our planning sessions",
-          "I was tasked with building several integral pages by recreating designes",
-          "Unique and complex layouts",
-          "Site implements complex layouts using a nested page-builder provided by Wagtail",
+          "Manipulating CMS data to implement a frontend with various kinds of article pages that could later be altered by the client",
+          "Tough styling challenge with many complex layout requirements including sophisticated animated components",
+          "Despite layout challenges, we still succeeded in making it fully responsive",
         ],
         tech: [
           "next-js",
