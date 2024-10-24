@@ -9,7 +9,13 @@ export const getDividerColor = (
     return shade === "800" ? "#1A202C" : "#fff";
   }
 
-  return theme.colors[dividerColor][shade];
+  const colorGroup = theme.colors[dividerColor];
+
+  if (typeof colorGroup === "object" && colorGroup !== null && shade in colorGroup) {
+    return colorGroup[shade as keyof typeof colorGroup] as string;
+  }
+
+  return "#000";
 };
 
 export function getGradient(sectionColor: string, shade: "light" | "dark") {

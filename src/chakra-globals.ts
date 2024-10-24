@@ -3,7 +3,8 @@ import { extendTheme, StyleFunctionProps } from "@chakra-ui/react";
 const theme = extendTheme({
   colors: {
     reactBlue: '#0A7EA4',
-    javascriptYellow: '#F7DF1C'
+    javascriptYellow: '#F7DF1C',
+    transparentWhite: "#FFFFFF55"
   },
   components: {
     Link: {

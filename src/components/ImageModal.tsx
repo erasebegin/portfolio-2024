@@ -1,7 +1,8 @@
 import { useEffect, useState, MouseEvent } from "react";
 import BgBlur from "./BgBlur";
-import { Box, Flex, Image, Text, useColorModeValue } from "@chakra-ui/react";
+import { Box, Button, Flex, Image, Text, useColorModeValue } from "@chakra-ui/react";
 import TechIcon from "./TechIcon";
+import { FaTimes } from "react-icons/fa";
 
 export interface ModalContent {
   image?: string;
@@ -52,6 +53,7 @@ const ImageModal: React.FC<ImageModalProps> = ({ modalContent }) => {
         transition="all 200ms ease-out"
       >
         <BgBlur show={isOpen} onClick={() => setIsOpen(false)} />
+        <Button onClick={() => setIsOpen(false)} zIndex={11} rounded="full" h="40px" w="40px" bg={detailBg2} mt={3}><FaTimes /></Button>
         {/* Inner Container */}
         <Box
           pos="absolute"
@@ -61,7 +63,7 @@ const ImageModal: React.FC<ImageModalProps> = ({ modalContent }) => {
           transition="ease-out"
           overflowY="auto"
           maxH={["800px", "80%"]}
-          w={["80%", "90%"]}
+          w={["95%", "80%"]}
           maxW="800px"
           shadow="lg"
           bg={modalBg}

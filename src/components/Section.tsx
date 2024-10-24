@@ -92,11 +92,10 @@ export default function Section({ sectionData }: SectionProps) {
                   <GridItem key={type}>
                     <TechIcon
                       type={type}
-                      labelColor={`${color}.${
-                        parseInt(shade) < 300
-                          ? parseInt(shade) + 500
-                          : parseInt(shade) - 400
-                      }`}
+                      labelColor={`${color}.${parseInt(shade) < 300
+                        ? parseInt(shade) + 500
+                        : parseInt(shade) - 400
+                        }`}
                     />
                   </GridItem>
                 ))}
@@ -134,11 +133,10 @@ export default function Section({ sectionData }: SectionProps) {
               key={`main-section-card-${index}`}
               data={cardData}
               columns={columns || 3}
-              sectionColor={`${color}.${
-                parseInt(shade) < 300
-                  ? parseInt(shade) + 500
-                  : parseInt(shade) - 400
-              }`}
+              sectionColor={`${color}.${shade === "dark"
+                ? 900
+                : 400
+                }`}
               setModalContent={setModalContent}
             />
           ))}

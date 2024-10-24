@@ -1,10 +1,12 @@
 import {
   Box,
+  Button,
   Flex,
   Grid,
   GridItem,
   Heading,
   Image,
+  Link,
   Stack,
   Text,
   useColorModeValue,
@@ -14,19 +16,21 @@ import Divider from "./Divider";
 import TechIcon from "./TechIcon";
 import { ProjectSection } from "../data/sectionData";
 import { getDividerColor, getGradient } from "../utils";
+import { useState } from "react";
 
 interface SectionProps {
   sectionData: ProjectSection;
 }
 
 export default function SectionFeatured({ sectionData }: SectionProps) {
+  const [readMore, setReadMore] = useState(false);
   const { title, subtitle, color, dividerColor, sectionInfo, cards } =
     sectionData || {};
 
   const theme = useTheme();
-  const shade = useColorModeValue("100", "800");
+  const shade = useColorModeValue("light", "dark");
 
-  const chakraDividerColor = getDividerColor(dividerColor, shade, theme);
+  const chakraDividerColor = getDividerColor(dividerColor, shade === "light" ? "100" : "800", theme);
 
   return (
     <Box
@@ -35,38 +39,39 @@ export default function SectionFeatured({ sectionData }: SectionProps) {
       w="full"
       pt={32}
       pb={16}
-      px={10}
-      backgroundImage={getGradient(color)}
+      px={[1, 10]}
+      backgroundImage={getGradient(color, shade)}
     >
       <Divider chakraProps={{ color: chakraDividerColor }} />
 
       <Box>
-        <Heading as="h2" size="lg" pb={3}>
+        <Heading as="h2" size="2xl" pb={3}>
           {title}
         </Heading>
-        <Text as="b" fontWeight={400} fontSize="2xl" pb={3}>
+        <Heading as="h3" fontWeight={500} fontSize="xl" pb={3} px={3}>
           {sectionInfo?.duration}
-        </Text>
-        <Text maxW="700" align="center" mx="auto" pb={7}>
+        </Heading>
+        <Text maxW="700" align="center" mx="auto" pb={7} px={3}>
           {subtitle}
         </Text>
         <Flex
           w="full"
           h="full"
+          direction={['column', 'row']}
           maxW="1300px"
           rounded="lg"
+          overflow="hidden"
           margin="auto"
-          bg="white"
+          bg={shade === "light" ? "white" : "gray.700"}
           shadow="lg"
-          overflow="visible"
         >
           <Image
             src={cards[0].image}
-            w="600px"
-            h="1000px"
+            w={["full", "600px"]}
+            h={["400px", "1000px"]}
             objectFit="cover"
-            objectPosition="-50px"
-            rounded="md"
+            objectPosition={["0", "-50px"]}
+            bg="white"
           />
           <Stack align="center" borderLeftWidth={2} borderLeftColor="gray.100">
             {sectionInfo && (
@@ -76,20 +81,29 @@ export default function SectionFeatured({ sectionData }: SectionProps) {
                 height="full"
                 pt={5}
               >
-                <Stack gap={3} px={10}>
+                <Stack gap={3} px={[3, 10]}>
                   <Box
                     dangerouslySetInnerHTML={{
                       __html: sectionInfo?.description,
                     }}
-                    sx={{
-                      p: {
-                        mb: 5,
-                      },
-                    }}
                     fontSize="md"
                     mb={5}
                     pt={5}
+                    noOfLines={readMore ? undefined : 5}
+                    transition="all 200ms ease-in-out"
+                    overflow="hidden"
+                    textOverflow="ellipsis"
+                    sx={{
+                      p: {
+                        pb: readMore ? 3 : 0
+                      },
+                      'p:last-child': {
+                        pb: 0
+                      }
+                    }}
                   />
+                  <Button onClick={() => setReadMore(!readMore)}>Read {readMore ? 'less' : 'more'}...</Button>
+                  <Button as={Link} href="https://www.savicase.com" target="_blank" rel="noopener noreferrer" bg="green.400" color="white" _hover={{ bg: "green.300" }}>View Project</Button>
                   <Grid
                     templateColumns={[
                       "repeat(4, 1fr)",
@@ -100,19 +114,20 @@ export default function SectionFeatured({ sectionData }: SectionProps) {
                     alignItems="center"
                     justifyContent="center"
                     rowGap={5}
-                    bg="#ffffff55"
-                    borderRadius={5}
+                    p={3}
+                    mb={3}
+                    bg={shade === "dark" ? "transparentWhite" : "gray.50"}
+                    rounded={5}
                   >
                     {sectionInfo?.tech.map((type) => (
                       <GridItem key={type}>
                         <TechIcon
                           type={type}
                           labelTop={false}
-                          labelColor={`${color}.${
-                            parseInt(shade) < 300
-                              ? parseInt(shade) + 500
-                              : parseInt(shade) - 400
-                          }`}
+                          labelColor={`${color}.${shade === "light"
+                            ? 400
+                            : 800
+                            }`}
                         />
                       </GridItem>
                     ))}

@@ -23,7 +23,7 @@ export default function Contact({ isOpen, setIsOpen }: ContactProps) {
   const [email, setEmail] = useState<string>("");
   const [message, setMessage] = useState<string>("");
 
-  const bg = useColorModeValue("white", "gray.500");
+  const bg = useColorModeValue("white", "gray.700");
 
   return (
     <Box

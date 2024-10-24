@@ -64,14 +64,10 @@ const data: ProjectSection[] = [
         image: "./images/savicase.jpg",
         image2: "./images/savicase2.jpg",
         description:
-          "An AI chat assistant built on top of IBM's Watson that traverses a vast database of internally created ",
-        demoUrl: "https://www.swanswaygarages.com/",
-        tech: ["vue", "nuxt", "github", "jira", "sass"],
-        modal: [
-          'Building components for use with in-house "page builder"',
-          "Biggest UK client with more than 20 dealerships located across the UK",
-          "Very tight deadlines with rapid prototyping and deployment",
-        ],
+          "A suite of tightly integrated tools that allows Verfahrensbeistände (guardians ad litem) and similar court workers to organise their data, make meaningful connections and expedite various processes such as letter writing and invoice generation",
+        demoUrl: "https://www.savicase.com/",
+        tech: ["next-js", "prisma", "supabase", "github", "chakra", "jira", "react-query"],
+        modal: [],
       },
     ],
   },

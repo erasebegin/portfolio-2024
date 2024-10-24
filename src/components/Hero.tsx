@@ -10,7 +10,8 @@ import {
   Image,
   Stack,
   Text,
-  useTheme,
+  theme,
+  useColorModeValue,
 } from "@chakra-ui/react";
 import HeroSvg from "./HeroSvg";
 
@@ -21,12 +22,11 @@ interface HeroProps {
 
 export default function Hero({ setIsOpen, isOpen }: HeroProps) {
   const [showLogos, setShowLogos] = useState<boolean>(false);
-
-  const theme = useTheme();
+  const shade = useColorModeValue("light", "dark");
 
   return (
-    <Box minH="900px" pt={20}>
-      <Divider chakraProps={{ color: theme.colors.blue[100] }} />
+    <Box minH="900px" pt={20} overflow="hidden">
+      <Divider chakraProps={{ color: shade === "light" ? theme.colors.blue[100] : theme.colors.blue[800] }} />
       <Stack
         pt={[showLogos ? 15 : 0, showLogos ? 15 : 0, showLogos ? 150 : 50]}
         transition="200ms ease-in-out"
@@ -150,7 +150,7 @@ export default function Hero({ setIsOpen, isOpen }: HeroProps) {
           px={3}
           pt={showLogos ? 150 : 50}
           transition="200ms ease-in-out"
-          w="600px"
+          w={["300px", "600px"]}
           mx="auto"
           align="center"
           pos="relative"
@@ -189,7 +189,7 @@ export default function Hero({ setIsOpen, isOpen }: HeroProps) {
             textAlign="center"
           >
             A collection of all the projects I've either owned or been a part of over the years, using
-            mostly <strong style={{ color: theme.colors.reactBlue }}>React</strong> and always <strong style={{ color: theme.colors.javascriptYellow }}>Javascript</strong>.
+            mostly <Text as="strong" color="reactBlue" >React</Text> and always <Text as="strong" color="javascriptYellow">Javascript</Text>.
           </Heading>
         </Stack>
       </Stack>
