@@ -10,12 +10,10 @@ import {
   Stack,
   Text,
   useColorModeValue,
-  useTheme,
 } from "@chakra-ui/react";
-import Divider from "./Divider";
 import TechIcon from "./TechIcon";
 import { ProjectSection } from "../data/sectionData";
-import { getDividerColor, getGradient } from "../utils";
+import { getGradient } from "../utils";
 import { useState } from "react";
 
 interface SectionProps {
@@ -24,13 +22,10 @@ interface SectionProps {
 
 export default function SectionFeatured({ sectionData }: SectionProps) {
   const [readMore, setReadMore] = useState(false);
-  const { title, subtitle, color, dividerColor, sectionInfo, cards } =
+  const { title, subtitle, color, sectionInfo, cards } =
     sectionData || {};
 
-  const theme = useTheme();
   const shade = useColorModeValue("light", "dark");
-
-  const chakraDividerColor = getDividerColor(dividerColor, shade === "light" ? "100" : "800", theme);
 
   return (
     <Box
@@ -42,8 +37,6 @@ export default function SectionFeatured({ sectionData }: SectionProps) {
       px={[1, 10]}
       backgroundImage={getGradient(color, shade)}
     >
-      <Divider chakraProps={{ color: chakraDividerColor }} />
-
       <Box>
         <Heading as="h2" size="2xl" pb={3}>
           {title}

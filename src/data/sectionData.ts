@@ -21,7 +21,7 @@ export type ProjectSection = {
   title: string;
   subtitle?: string;
   color: string;
-  dividerColor: string;
+  dividerColor?: string;
   buttonColor: string;
   feature?: boolean;
   sectionInfo?: ProjectSectionInfo;
@@ -36,7 +36,6 @@ const data: ProjectSection[] = [
     subtitle:
       "Leading a team to create large, complex software products for Guardians Ad Litem and similar court-centric roles in the German market",
     color: "green",
-    dividerColor: "white",
     buttonColor: "green",
     feature: true,
     sectionInfo: {

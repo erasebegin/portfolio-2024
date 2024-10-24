@@ -23,10 +23,12 @@ interface HeroProps {
 export default function Hero({ setIsOpen, isOpen }: HeroProps) {
   const [showLogos, setShowLogos] = useState<boolean>(false);
   const shade = useColorModeValue("light", "dark");
+  const gradientLight = "linear-gradient(0deg, hsla(0, 0%, 100%, 1) 0%, hsla(202, 81%, 86%, 1) 100%);"
+  const gradientDark = "linear-gradient(0deg, hsla(150, 2%, 22%, 1) 0%, hsla(215, 40%, 28%, 1) 100%);"
 
   return (
-    <Box minH="900px" pt={20} overflow="hidden">
-      <Divider chakraProps={{ color: shade === "light" ? theme.colors.blue[100] : theme.colors.blue[800] }} />
+    <Box minH="900px" backgroundImage={shade === "light" ? gradientLight : gradientDark} pt={20} overflow="hidden">
+      <Divider chakraProps={{ color: shade === "light" ? theme.colors.blue[200] : theme.colors.blue[900] }} />
       <Stack
         pt={[showLogos ? 15 : 0, showLogos ? 15 : 0, showLogos ? 150 : 50]}
         transition="200ms ease-in-out"
@@ -147,10 +149,9 @@ export default function Hero({ setIsOpen, isOpen }: HeroProps) {
         </Flex>
 
         <Stack
-          px={3}
           pt={showLogos ? 150 : 50}
           transition="200ms ease-in-out"
-          w={["300px", "600px"]}
+          w={["95%", "600px"]}
           mx="auto"
           align="center"
           pos="relative"
