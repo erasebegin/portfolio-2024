@@ -28,8 +28,10 @@ export default function Icon({ type, labelColor, labelTop = true }: IconProps) {
         left="50%"
         transform="translateX(-50%)"
         color="white"
-        p={1}
-        rounded="sm"
+        px={2}
+        // no idea why this is necessary. no idea where the 1rem of padding is coming from
+        sx={{ paddingBottom: "3px !important", paddingTop: "3px !important" }}
+        rounded="md"
         transition="opacity 200ms ease-in"
         whiteSpace="nowrap"
         bg={labelColor}

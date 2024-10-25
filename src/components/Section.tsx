@@ -92,9 +92,9 @@ export default function Section({ sectionData }: SectionProps) {
                   <GridItem key={type}>
                     <TechIcon
                       type={type}
-                      labelColor={`${color}.${parseInt(shade) < 300
-                        ? parseInt(shade) + 500
-                        : parseInt(shade) - 400
+                      labelColor={`${color}.${shade === "light"
+                        ? 400
+                        : 700
                         }`}
                     />
                   </GridItem>

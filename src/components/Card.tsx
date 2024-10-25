@@ -62,9 +62,10 @@ export default function PortfolioCard({
         alt="site screenshot"
         objectFit="cover"
         objectPosition="50%, 20%"
-        onClick={handleClick}
+        cursor="pointer"
         borderBottom="1px"
         borderColor={sectionColor}
+        onClick={handleClick}
       />
       {year && (
         <Text

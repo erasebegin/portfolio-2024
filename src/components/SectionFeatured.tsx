@@ -10,6 +10,7 @@ import {
   Stack,
   Text,
   useColorModeValue,
+  useMediaQuery,
 } from "@chakra-ui/react";
 import TechIcon from "./TechIcon";
 import { ProjectSection } from "../data/sectionData";
@@ -24,7 +25,7 @@ export default function SectionFeatured({ sectionData }: SectionProps) {
   const [readMore, setReadMore] = useState(false);
   const { title, subtitle, color, sectionInfo, cards } =
     sectionData || {};
-
+  const [isMobile] = useMediaQuery("(max-width: 800px)")
   const shade = useColorModeValue("light", "dark");
 
   return (
@@ -82,21 +83,25 @@ export default function SectionFeatured({ sectionData }: SectionProps) {
                     fontSize="md"
                     mb={5}
                     pt={5}
-                    noOfLines={readMore ? undefined : 5}
+                    noOfLines={!isMobile || readMore ? undefined : 5}
                     transition="all 200ms ease-in-out"
                     overflow="hidden"
                     textOverflow="ellipsis"
                     sx={{
                       p: {
-                        pb: readMore ? 3 : 0
+                        pb: !isMobile || readMore ? 3 : 0
                       },
                       'p:last-child': {
                         pb: 0
                       }
                     }}
                   />
-                  <Button onClick={() => setReadMore(!readMore)}>Read {readMore ? 'less' : 'more'}...</Button>
-                  <Button as={Link} href="https://www.savicase.com" target="_blank" rel="noopener noreferrer" bg="green.400" color="white" _hover={{ bg: "green.300" }}>View Project</Button>
+                  {isMobile && (
+                    <>
+                      <Button onClick={() => setReadMore(!readMore)}>Read {readMore ? 'less' : 'more'}...</Button>
+                      <Button as={Link} href="https://www.savicase.com" target="_blank" rel="noopener noreferrer" bg="green.400" color="white" _hover={{ bg: "green.300" }}>View Project</Button>
+                    </>
+                  )}
                   <Grid
                     templateColumns={[
                       "repeat(4, 1fr)",
