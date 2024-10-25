@@ -4,6 +4,7 @@ import { IoMdArrowDropright } from "react-icons/io";
 import {
   Box,
   Button,
+  ChakraTheme,
   Grid,
   GridItem,
   Heading,
@@ -30,11 +31,11 @@ export default function Section({ sectionData }: SectionProps) {
 
   const [modalContent, setModalContent] = useState<ModalContent>();
   const [showInfo, setShowInfo] = useState(false);
-  const theme = useTheme();
+  const theme = useTheme() as ChakraTheme;
   const shade = useColorModeValue("light", "dark");
 
   const chakraDividerColor = getDividerColor(
-    dividerColor,
+    dividerColor || "blue",
     shade === "light" ? "100" : "800",
     theme,
   );
@@ -92,10 +93,7 @@ export default function Section({ sectionData }: SectionProps) {
                   <GridItem key={type}>
                     <TechIcon
                       type={type}
-                      labelColor={`${color}.${shade === "light"
-                        ? 400
-                        : 700
-                        }`}
+                      labelColor={`${color}.${shade === "light" ? 400 : 700}`}
                     />
                   </GridItem>
                 ))}
@@ -133,10 +131,7 @@ export default function Section({ sectionData }: SectionProps) {
               key={`main-section-card-${index}`}
               data={cardData}
               columns={columns || 3}
-              sectionColor={`${color}.${shade === "dark"
-                ? 900
-                : 400
-                }`}
+              sectionColor={`${color}.${shade === "dark" ? 900 : 400}`}
               setModalContent={setModalContent}
             />
           ))}

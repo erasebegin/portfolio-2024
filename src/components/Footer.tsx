@@ -1,12 +1,11 @@
 import {
   Box,
   Flex,
-  Theme,
   useColorModeValue,
   Text,
   Link,
+  ChakraTheme,
 } from "@chakra-ui/react";
-import styled from "@emotion/styled";
 import { useTheme } from "@chakra-ui/react";
 import {
   GrReactjs,
@@ -23,7 +22,7 @@ interface FooterProps {
 }
 
 export default function Footer({ setOpenContact }: FooterProps) {
-  const theme = useTheme();
+  const theme = useTheme() as ChakraTheme;
   const shade = useColorModeValue("light", "dark");
 
   const chakraDividerColor = getDividerColor(
@@ -73,10 +72,12 @@ export default function Footer({ setOpenContact }: FooterProps) {
       <Flex justify="center" align="center" mt={3}>
         <Text mb={0}>
           Created using{" "}
-          <strong style={{ color: theme.colors.reactBlue }}>React</strong>
+          <strong style={{ color: theme.colors.reactBlue as string }}>
+            React
+          </strong>
         </Text>
         <Box mx={1}>
-          <GrReactjs size="2rem" color={theme.colors.reactBlue} />
+          <GrReactjs size="2rem" color={theme.colors.reactBlue as string} />
         </Box>
         <Text>
           Check out the source over on{" "}
@@ -92,32 +93,3 @@ export default function Footer({ setOpenContact }: FooterProps) {
     </Box>
   );
 }
-
-const FooterTextContainer = styled.div<{ theme: Theme }>`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 2rem;
-  color: white;
-
-  p {
-    margin-bottom: 0;
-  }
-
-  svg {
-    margin: 0 0.5rem;
-    color: ${(props) => props.theme.colors.white};
-  }
-
-  a {
-    color: ${(props) => props.theme.colors.yellow};
-  }
-
-  @media (max-width: 700px) {
-    flex-direction: column;
-
-    svg {
-      display: none;
-    }
-  }
-`;
