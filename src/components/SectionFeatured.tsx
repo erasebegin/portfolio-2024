@@ -23,9 +23,8 @@ interface SectionProps {
 
 export default function SectionFeatured({ sectionData }: SectionProps) {
   const [readMore, setReadMore] = useState(false);
-  const { title, subtitle, color, sectionInfo, cards } =
-    sectionData || {};
-  const [isMobile] = useMediaQuery("(max-width: 800px)")
+  const { title, subtitle, color, sectionInfo, cards } = sectionData || {};
+  const [isMobile] = useMediaQuery("(max-width: 800px)");
   const shade = useColorModeValue("light", "dark");
 
   return (
@@ -51,7 +50,7 @@ export default function SectionFeatured({ sectionData }: SectionProps) {
         <Flex
           w="full"
           h="full"
-          direction={['column', 'row']}
+          direction={["column", "row"]}
           maxW="1300px"
           rounded="lg"
           overflow="hidden"
@@ -89,19 +88,29 @@ export default function SectionFeatured({ sectionData }: SectionProps) {
                     textOverflow="ellipsis"
                     sx={{
                       p: {
-                        pb: !isMobile || readMore ? 3 : 0
+                        pb: !isMobile || readMore ? 3 : 0,
                       },
-                      'p:last-child': {
-                        pb: 0
-                      }
+                      "p:last-child": {
+                        pb: 0,
+                      },
                     }}
                   />
                   {isMobile && (
-                    <>
-                      <Button onClick={() => setReadMore(!readMore)}>Read {readMore ? 'less' : 'more'}...</Button>
-                      <Button as={Link} href="https://www.savicase.com" target="_blank" rel="noopener noreferrer" bg="green.400" color="white" _hover={{ bg: "green.300" }}>View Project</Button>
-                    </>
+                    <Button onClick={() => setReadMore(!readMore)}>
+                      Read {readMore ? "less" : "more"}...
+                    </Button>
                   )}
+                  <Button
+                    as={Link}
+                    href="https://www.savicase.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    bg="green.400"
+                    color="white"
+                    _hover={{ bg: "green.300" }}
+                  >
+                    View Project
+                  </Button>
                   <Grid
                     templateColumns={[
                       "repeat(4, 1fr)",
@@ -122,10 +131,9 @@ export default function SectionFeatured({ sectionData }: SectionProps) {
                         <TechIcon
                           type={type}
                           labelTop={false}
-                          labelColor={`${color}.${shade === "light"
-                            ? 400
-                            : 800
-                            }`}
+                          labelColor={`${color}.${
+                            shade === "light" ? 400 : 800
+                          }`}
                         />
                       </GridItem>
                     ))}

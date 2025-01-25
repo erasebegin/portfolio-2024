@@ -65,7 +65,15 @@ const data: ProjectSection[] = [
         description:
           "A suite of tightly integrated tools that allows Verfahrensbeistände (guardians ad litem) and similar court workers to organise their data, make meaningful connections and expedite various processes such as letter writing and invoice generation",
         demoUrl: "https://www.savicase.com/",
-        tech: ["next-js", "prisma", "supabase", "github", "chakra", "jira", "react-query"],
+        tech: [
+          "next-js",
+          "prisma",
+          "supabase",
+          "github",
+          "chakra",
+          "jira",
+          "react-query",
+        ],
         modal: [],
       },
     ],
@@ -124,16 +132,15 @@ const data: ProjectSection[] = [
       {
         title: "World Properties",
         year: "2022",
-        image: "./images/aab-cars.png",
+        image: "./images/world-properties.png",
         description:
           "Solo project cloning and customising a template to meet client needs",
         demoUrl: "https://aabcars.pre.nexuspointdev.co.uk/",
         tech: ["react", "stitches", "github", "jira", "sass"],
         modal: [
-          "Leveraged custom in-house styling framework and design patterns",
-          "Total overhaul of home hero design",
-          "New bespoke components to meet client needs e.g. sticky valuation form",
-          "implementing 3rd-party apis such as Trustpilot",
+          'Developed a responsive frontend for "World Properties," enabling users to browse, create, and update dynamic property values, such as the national minimum wage, with seamless integration into existing articles.',
+          "Structured and styled the application using Stitches, opting for CSS-in-JS to enhance maintainability and collocate styles directly within components.",
+          "Architected the file structure, optimizing for scalability and readability within an established project foundation.",
         ],
       },
     ],

@@ -95,6 +95,7 @@ export default function Hero({ setIsOpen, isOpen }: HeroProps) {
               border="solid"
               borderWidth={5}
               borderColor="blue.300"
+              bg="#fff"
               alt="headshot, face turned to side, background is balck-and-white"
               borderRadius="full"
               boxSize={[
