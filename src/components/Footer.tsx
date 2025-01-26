@@ -26,7 +26,7 @@ export default function Footer({ setOpenContact }: FooterProps) {
   const shade = useColorModeValue("light", "dark");
 
   const chakraDividerColor = getDividerColor(
-    "yellow",
+    "green",
     shade === "light" ? "100" : "800",
     theme,
   );
@@ -34,12 +34,13 @@ export default function Footer({ setOpenContact }: FooterProps) {
   return (
     <Box
       as="footer"
-      bg={shade === "light" ? "yellow.400" : "gray.700"}
+      bg={shade === "light" ? "green.400" : "gray.700"}
       pos="relative"
       w="full"
       pt={32}
       pb={20}
       marginTop="-1rem !important"
+      overflowX="hidden"
     >
       <Divider chakraProps={{ color: chakraDividerColor }} />
       <Flex justify="center" gap={5} pb={10}>

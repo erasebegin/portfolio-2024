@@ -35,8 +35,8 @@ const data: ProjectSection[] = [
     title: "Savisoft",
     subtitle:
       "Leading a team to create large, complex software products for Guardians Ad Litem and similar court-centric roles in the German market",
-    color: "green",
-    buttonColor: "green",
+    color: "lightBlue",
+    buttonColor: "lightBlue",
     feature: true,
     sectionInfo: {
       duration: "Sep 2022 - Dec 2024",
@@ -54,6 +54,7 @@ const data: ProjectSection[] = [
         "prisma",
         "supabase",
         "react-query",
+        "stripe"
       ],
     },
     cards: [
@@ -64,7 +65,7 @@ const data: ProjectSection[] = [
         image2: "./images/savicase2.jpg",
         description:
           "A suite of tightly integrated tools that allows Verfahrensbeistände (guardians ad litem) and similar court workers to organise their data, make meaningful connections and expedite various processes such as letter writing and invoice generation",
-        demoUrl: "https://www.savicase.com/",
+        demoUrl: "https://www.savicase.de/",
         tech: [
           "next-js",
           "prisma",
@@ -82,8 +83,8 @@ const data: ProjectSection[] = [
     title: "Rradar",
     subtitle:
       "Creating and maintaining supporting tools for Rradar's lawyers and their clients",
-    color: "blue",
-    dividerColor: "green",
+    color: "darkBlue",
+    dividerColor: "lightBlue",
     buttonColor: "blue",
     sectionInfo: {
       duration: "Sep 2022 - Dec 2024",
@@ -149,10 +150,10 @@ const data: ProjectSection[] = [
     title: "Nexus Point",
     subtitle:
       "Creating ecommerce platforms and services for automotive retailers",
-    color: "green",
+    color: "lightBlue",
     columns: 5,
-    dividerColor: "blue",
-    buttonColor: "green",
+    dividerColor: "darkBlue",
+    buttonColor: "lightBlue",
     sectionInfo: {
       duration: "Feb 2022 - Aug 2022",
       description:
@@ -240,9 +241,9 @@ const data: ProjectSection[] = [
     title: "Isha",
     subtitle:
       "Designing and creating user experiences to coincide with events throughout the year",
-    color: "blue",
-    dividerColor: "green",
-    buttonColor: "green",
+    color: "darkBlue",
+    dividerColor: "lightBlue",
+    buttonColor: "blue",
     columns: 5,
     sectionInfo: {
       duration: "Feb 2021 - Present",
@@ -349,9 +350,9 @@ const data: ProjectSection[] = [
     title: "Apacio",
     subtitle:
       "Created pixel-perfect websites within small teams organised around Agile methodologies",
-    color: "green",
-    dividerColor: "blue",
-    buttonColor: "yellow",
+    color: "lightBlue",
+    dividerColor: "darkBlue",
+    buttonColor: "lightBlue",
     sectionInfo: {
       duration: "Jan 2021 - Sep 2021",
       description:
@@ -442,8 +443,8 @@ const data: ProjectSection[] = [
     title: "Thinkdrops",
     subtitle:
       "Created portfolios, landing pages and ecommerce platforms for creative professionals",
-    color: "blue",
-    dividerColor: "green",
+    color: "darkBlue",
+    dividerColor: "lightBlue",
     buttonColor: "green",
     columns: 4,
     sectionInfo: {
@@ -533,8 +534,8 @@ const data: ProjectSection[] = [
   {
     title: "Personal",
     subtitle: "All sorts of bits and bobs created for fun and learning",
-    color: "green",
-    dividerColor: "blue",
+    color: "lightBlue",
+    dividerColor: "darkBlue",
     buttonColor: "green",
     columns: 4,
     sectionInfo: {
@@ -631,8 +632,8 @@ const data: ProjectSection[] = [
   },
   {
     title: "Illustration",
-    color: "yellow",
-    dividerColor: "green",
+    color: "green",
+    dividerColor: "lightBlue",
     buttonColor: "yellow",
     columns: 3,
     externalUrl: "https://illustration.thinkdrops.co.uk",

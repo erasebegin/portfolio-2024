@@ -9,12 +9,13 @@ import {
   Link,
   Stack,
   Text,
+  theme,
   useColorModeValue,
   useMediaQuery,
 } from "@chakra-ui/react";
 import TechIcon from "./TechIcon";
 import { ProjectSection } from "../data/sectionData";
-import { getGradient } from "../utils";
+import { getDividerColor, getGradient } from "../utils";
 import { useState } from "react";
 
 interface SectionProps {
@@ -37,7 +38,14 @@ export default function SectionFeatured({ sectionData }: SectionProps) {
       px={[1, 10]}
       backgroundImage={getGradient(color, shade)}
     >
-      <Box>
+      <Box pos="relative" maxW="1200px" margin="auto">
+        <Image
+          src="./images/bestest-project.svg"
+          pos="absolute"
+          top="90px"
+          h={100}
+          display={["none", "none", "none", "block", "block"]}
+        />
         <Heading as="h2" size="2xl" pb={3}>
           {title}
         </Heading>
@@ -102,7 +110,7 @@ export default function SectionFeatured({ sectionData }: SectionProps) {
                   )}
                   <Button
                     as={Link}
-                    href="https://www.savicase.com"
+                    href="https://www.savicase.de"
                     target="_blank"
                     rel="noopener noreferrer"
                     bg="green.400"
@@ -131,9 +139,11 @@ export default function SectionFeatured({ sectionData }: SectionProps) {
                         <TechIcon
                           type={type}
                           labelTop={false}
-                          labelColor={`${color}.${
-                            shade === "light" ? 400 : 800
-                          }`}
+                          labelColor={getDividerColor(
+                            "blue",
+                            shade === "light" ? "100" : "800",
+                            theme
+                          )}
                         />
                       </GridItem>
                     ))}

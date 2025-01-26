@@ -9,6 +9,14 @@ export const getDividerColor = (
     return shade === "800" ? "#1A202C" : "#fff";
   }
 
+  if (dividerColor === "darkBlue") {
+    return shade === "800" ? "hsl(220deg 45% 18%)" : "hsl(220deg 70% 80%)";
+  }
+
+  if (dividerColor === "lightBlue") {
+    return shade === "800" ? "hsl(190deg 65% 22%)" : "hsl(190deg 85% 85%)";
+  }
+
   const colorGroup = theme.colors[dividerColor];
 
   if (typeof colorGroup === "object" && colorGroup !== null && shade in colorGroup) {
@@ -131,6 +139,82 @@ export function getGradient(sectionColor: string, shade: "light" | "dark") {
     hsl(57deg 100% 99%) 92%,
     hsl(0deg 0% 100%) 100%
   );`;
+  }
+
+  if (sectionColor === "darkBlue") {
+    if (shade === "dark") {
+      return `linear-gradient(
+        0deg,
+        hsl(220deg 45% 18%) 0%,
+        hsl(220deg 42% 18%) 8%,
+        hsl(220deg 39% 18%) 17%,
+        hsl(220deg 36% 18%) 25%,
+        hsl(220deg 33% 17%) 33%,
+        hsl(220deg 30% 17%) 42%,
+        hsl(220deg 27% 17%) 50%,
+        hsl(220deg 24% 16%) 58%,
+        hsl(220deg 21% 16%) 67%,
+        hsl(220deg 18% 16%) 75%,
+        hsl(220deg 15% 15%) 83%,
+        hsl(220deg 12% 15%) 92%,
+        hsl(0deg 0% 21%) 100%
+      );`;
+    }
+
+    return `linear-gradient(
+      0deg,
+      hsl(220deg 70% 80%) 0%,
+      hsl(220deg 70% 82%) 8%,
+      hsl(220deg 70% 84%) 17%,
+      hsl(220deg 70% 86%) 25%,
+      hsl(220deg 70% 88%) 33%,
+      hsl(220deg 70% 90%) 42%,
+      hsl(220deg 70% 92%) 50%,
+      hsl(220deg 70% 94%) 58%,
+      hsl(220deg 70% 96%) 67%,
+      hsl(220deg 70% 97%) 75%,
+      hsl(220deg 70% 98%) 83%,
+      hsl(220deg 70% 99%) 92%,
+      hsl(0deg 0% 100%) 100%
+    );`;
+  }
+
+  if (sectionColor === "lightBlue") {
+    if (shade === "dark") {
+      return `linear-gradient(
+        0deg,
+        hsl(190deg 65% 22%) 0%,
+        hsl(190deg 62% 22%) 8%,
+        hsl(190deg 59% 21%) 17%,
+        hsl(190deg 56% 21%) 25%,
+        hsl(190deg 53% 20%) 33%,
+        hsl(190deg 50% 20%) 42%,
+        hsl(190deg 47% 19%) 50%,
+        hsl(190deg 44% 19%) 58%,
+        hsl(190deg 41% 18%) 67%,
+        hsl(190deg 38% 18%) 75%,
+        hsl(190deg 35% 17%) 83%,
+        hsl(190deg 32% 17%) 92%,
+        hsl(0deg 0% 21%) 100%
+      );`;
+    }
+
+    return `linear-gradient(
+      0deg,
+      hsl(190deg 85% 85%) 0%,
+      hsl(190deg 85% 86%) 8%,
+      hsl(190deg 85% 87%) 17%,
+      hsl(190deg 85% 88%) 25%,
+      hsl(190deg 85% 89%) 33%,
+      hsl(190deg 85% 90%) 42%,
+      hsl(190deg 85% 91%) 50%,
+      hsl(190deg 85% 92%) 58%,
+      hsl(190deg 85% 93%) 67%,
+      hsl(190deg 85% 94%) 75%,
+      hsl(190deg 85% 95%) 83%,
+      hsl(190deg 85% 96%) 92%,
+      hsl(0deg 0% 100%) 100%
+    );`;
   }
 }
 

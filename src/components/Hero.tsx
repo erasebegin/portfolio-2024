@@ -23,18 +23,31 @@ interface HeroProps {
 export default function Hero({ setIsOpen, isOpen }: HeroProps) {
   const [showLogos, setShowLogos] = useState<boolean>(false);
   const shade = useColorModeValue("light", "dark");
-  const gradientLight = "linear-gradient(0deg, hsla(0, 0%, 100%, 1) 0%, hsla(202, 81%, 86%, 1) 100%);"
-  const gradientDark = "linear-gradient(0deg, hsla(150, 2%, 22%, 1) 0%, hsla(215, 40%, 28%, 1) 100%);"
+  const gradientLight =
+    "linear-gradient(0deg, hsla(0, 0%, 100%, 1) 0%, hsla(202, 81%, 86%, 1) 100%);";
+  const gradientDark =
+    "linear-gradient(0deg, hsla(150, 2%, 22%, 1) 0%, hsla(215, 40%, 28%, 1) 100%);";
 
   return (
-    <Box minH="900px" backgroundImage={shade === "light" ? gradientLight : gradientDark} pt={20} overflow="hidden">
-      <Divider chakraProps={{ color: shade === "light" ? theme.colors.blue[200] : theme.colors.blue[900] }} />
+    <Box
+      as="section"
+      pos="relative"
+      minH="900px"
+      backgroundImage={shade === "light" ? gradientLight : gradientDark}
+      pt={20}
+      overflowX="hidden"
+    >
+      <Divider
+        chakraProps={{
+          color:
+            shade === "light" ? theme.colors.blue[200] : theme.colors.blue[900],
+        }}
+      />
       <Stack
         pt={[showLogos ? 15 : 0, showLogos ? 15 : 0, showLogos ? 150 : 50]}
         transition="200ms ease-in-out"
         pos="relative"
       >
-
         <Flex
           align="center"
           justify="center"
@@ -92,10 +105,11 @@ export default function Hero({ setIsOpen, isOpen }: HeroProps) {
             <Logos showLogos={showLogos} />
             <Image
               src="./images/me-shell-crop.jpeg"
+              fallbackSrc="./images/me-shell-crop-blur.png"
+              loading="lazy"
               border="solid"
               borderWidth={5}
               borderColor="blue.300"
-              bg="#fff"
               alt="headshot, face turned to side, background is balck-and-white"
               borderRadius="full"
               boxSize={[
@@ -190,8 +204,16 @@ export default function Hero({ setIsOpen, isOpen }: HeroProps) {
             pb={20}
             textAlign="center"
           >
-            A collection of all the projects I've either owned or been a part of over the years, using
-            mostly <Text as="strong" color="reactBlue" >React</Text> and always <Text as="strong" color="javascriptYellow">Javascript</Text>.
+            A collection of all the projects I've either owned or been a part of
+            over the years, using mostly{" "}
+            <Text as="strong" color="reactBlue">
+              React
+            </Text>{" "}
+            and always{" "}
+            <Text as="strong" color="javascriptYellow">
+              Javascript
+            </Text>
+            .
           </Heading>
         </Stack>
       </Stack>
