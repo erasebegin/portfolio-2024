@@ -77,6 +77,7 @@ export default function PortfolioCard({
           bg={sectionColor}
           color="white"
           opacity={showInfo ? "1" : "0"}
+          pointerEvents="none"
           transition="100ms ease-in"
           maxH={showInfo ? "unset" : "0"}
           fontWeight="500"
@@ -95,7 +96,7 @@ export default function PortfolioCard({
         <Heading as="h5" size={showInfo ? "sm" : "0px"} overflow="hidden" pb={3}>
           {title}
         </Heading>
-        <Flex justify="center" align="end" w="full" gap={3}>
+        <Flex justify="center" align="end" w="full" gap={3} display={showInfo ? "flex" : "none"}>
           {demoUrl && (
             <a href={demoUrl} rel="noopener noreferrer" target="_blank">
               <Button color="primary" type="button">

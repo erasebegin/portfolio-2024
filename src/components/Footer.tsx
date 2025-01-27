@@ -86,6 +86,7 @@ export default function Footer({ setOpenContact }: FooterProps) {
             href="https://github.com/erasebegin/portfolio-2024"
             target="_blank"
             rel="noopener noreferrer"
+            color="reactBlue"
           >
             Github
           </Link>

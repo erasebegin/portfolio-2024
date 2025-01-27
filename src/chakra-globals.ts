@@ -1,8 +1,13 @@
 import { extendTheme, StyleFunctionProps } from "@chakra-ui/react";
+import '@fontsource/nunito'
 
 const theme = extendTheme({
+  fonts: {
+    heading: "Nunito",
+    body: "Nunito",
+  },
   colors: {
-    reactBlue: '#0A7EA4',
+    reactBlue: '#065C7A',
     javascriptYellow: '#F7DF1C',
     transparentWhite: "#FFFFFF55"
   },

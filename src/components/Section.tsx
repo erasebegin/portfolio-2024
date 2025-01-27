@@ -99,6 +99,7 @@ export default function Section({ sectionData }: SectionProps) {
           <Flex
             alignItems="center"
             justifyContent="center"
+            wrap="wrap"
             rowGap={5}
             gap={3}
             bg="#ffffff55"
@@ -123,9 +124,9 @@ export default function Section({ sectionData }: SectionProps) {
         <Grid
           gap={5}
           templateColumns={[
-            "repeat(1, 1fr)",
-            "repeat(2, 1fr)",
-            `repeat(2, 1fr)`,
+            showInfo ? "repeat(1, 1fr)":"repeat(3, 1fr)",
+            "repeat(4, 1fr)",
+            `repeat(5, 1fr)`,
             `repeat(${columns || 3}, 1fr)`,
           ]}
           gridAutoRows="1fr"

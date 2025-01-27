@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { ChakraProvider, Grid, Stack } from "@chakra-ui/react";
 import { ColorModeSwitcher } from "./components/ColorModeSwitcher";
-import Hero from "./components/Hero";
+import Hero from "./components/Hero/index";
 import Contact from "./components/Contact";
 import Section from "./components/Section";
 import BgBlur from "./components/BgBlur";
@@ -15,7 +15,7 @@ const App: React.FC = () => {
 
   return (
     <ChakraProvider theme={customTheme}>
-      <Grid textAlign="center" fontSize="xl" minH="100vh">
+      <Grid textAlign="center" fontSize="xl">
         <ColorModeSwitcher
           justifySelf="flex-end"
           pos="fixed"
