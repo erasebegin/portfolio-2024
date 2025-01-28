@@ -5,6 +5,7 @@ import {
   Grid,
   GridItem,
   Heading,
+  Icon,
   Image,
   Link,
   Stack,
@@ -17,6 +18,7 @@ import TechIcon from "./TechIcon";
 import { ProjectSection } from "../data/sectionData";
 import { getDividerColor, getGradient } from "../utils";
 import { useState } from "react";
+import { FaExternalLinkAlt } from "react-icons/fa";
 
 interface SectionProps {
   sectionData: ProjectSection;
@@ -36,6 +38,8 @@ export default function SectionFeatured({ sectionData }: SectionProps) {
       pt={32}
       pb={16}
       px={[1, 10]}
+      overflow="hidden"
+      maxW="100vw"
       backgroundImage={getGradient(color, shade)}
     >
       <Box pos="relative" maxW="1200px" margin="auto">
@@ -74,7 +78,7 @@ export default function SectionFeatured({ sectionData }: SectionProps) {
             objectPosition={["0", "-50px"]}
             bg="white"
           />
-          <Stack align="center" borderLeftWidth={2} borderLeftColor="gray.100">
+          <Stack align="center" borderLeftWidth={[0,2,2]} borderLeftColor="gray.100">
             {sectionInfo && (
               <Stack
                 align="center"
@@ -117,7 +121,7 @@ export default function SectionFeatured({ sectionData }: SectionProps) {
                     color="white"
                     _hover={{ bg: "green.300" }}
                   >
-                    View Project
+                    View Project <Icon as={FaExternalLinkAlt} ml={3} />
                   </Button>
                   <Grid
                     templateColumns={[

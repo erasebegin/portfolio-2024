@@ -28,7 +28,7 @@ export default function Footer({ setOpenContact }: FooterProps) {
   const chakraDividerColor = getDividerColor(
     "green",
     shade === "light" ? "100" : "800",
-    theme,
+    theme
   );
 
   return (
@@ -70,7 +70,7 @@ export default function Footer({ setOpenContact }: FooterProps) {
           <GrMail size="2rem" color="white" />
         </Box>
       </Flex>
-      <Flex justify="center" align="center" mt={3}>
+      <Flex justify="center" align="center" mt={3} flexDirection={["column", "row", "row"]}>
         <Text mb={0}>
           Created using{" "}
           <strong style={{ color: theme.colors.reactBlue as string }}>
@@ -88,7 +88,7 @@ export default function Footer({ setOpenContact }: FooterProps) {
             rel="noopener noreferrer"
             color="reactBlue"
           >
-            Github
+            <strong>Github</strong>
           </Link>
         </Text>
       </Flex>

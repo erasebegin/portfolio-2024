@@ -98,9 +98,9 @@ const ImageModal: React.FC<ImageModalProps> = ({ modalContent }) => {
                   bg={index % 2 === 0 ? detailBg1 : detailBg2}
                   p={3}
                   fontSize="md"
-                >
-                  {item}
-                </Text>
+                  sx={{a: {color: "blue.500", textDecor: "underline"}}}
+                  dangerouslySetInnerHTML={{ __html: item }}
+                />
               ))}
             </Box>
           )}

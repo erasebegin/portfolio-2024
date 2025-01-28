@@ -45,7 +45,7 @@ export default function Section({ sectionData }: SectionProps) {
       as="section"
       pos="relative"
       w="full"
-      px={10}
+      px={[5,10,10]}
       overflowX="hidden"
       backgroundImage={getGradient(color, shade)}
       marginTop="0 !important"

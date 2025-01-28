@@ -16,42 +16,51 @@ export default function HeroContent({ showLogos }: HeroContentProps) {
     >
       <Image
         src="/images/whiteboard-text/dad-jokes.svg"
-        maxW="300px"
+        maxW={["190px","200px","300px"]}
         pos="absolute"
-        left="-200px"
-        top="-150px"
+        left={["50px","20px","-200px"]}
+        top={["-130px","-100px","-150px"]}
+        transform={["rotate(20deg)","rotate(0)","rotate(0)"]}
+        transition="transform 200ms ease-in"
         zIndex={2}
       />
       <Image
         src="/images/whiteboard-text/javascript-junkie.svg"
-        maxW="350px"
+        maxW={["250px","250px","350px"]}
         pos="absolute"
-        right="-250px"
-        top="100px"
+        right={["-20px","0","-250px"]}
+        top={["120px","100px","100px"]}
+        transform={["rotate(40deg)","rotate(0)","rotate(0)"]}
+        transition="transform 200ms ease-in"
         zIndex={2}
       />
       <Image
         src="/images/whiteboard-text/morning-person.svg"
-        maxW="300px"
+        maxW={["180px","200px","300px"]}
         pos="absolute"
-        left="-170px"
+        left={["10px","50px","-170px"]}
         top="100px"
+        transform={["rotate(-40deg)","rotate(0)","rotate(0)"]}
+        transition="transform 200ms ease-in"
         zIndex={2}
       />
       <Image
         src="/images/whiteboard-text/annoyingly-optimistic.svg"
-        maxW="400px"
+        maxW={["250px","300px","400px"]}
         pos="absolute"
-        right="-200px"
-        top="-150px"
+        right={["-50px","0","-200px"]}
+        top={["-200px","-150px","-200px"]}
+        transform={["rotate(-40deg)","rotate(0)","rotate(0)"]}
+        transition="transform 200ms ease-in"
         zIndex={2}
       />
       <Image
         src="/images/whiteboard-text/cloud.svg"
         minW={["unset","unset","600px"]}
+        maxW={["300px","400px","unset"]}
         pos="absolute"
-        right="0px"
-        top="-120px"
+        right={["50px","100px","0"]}
+        top={["-55px","-80px","-120px"]}
         zIndex={0}
       />
       <Heading

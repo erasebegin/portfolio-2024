@@ -37,7 +37,7 @@ export default function PortfolioCard({
   setModalContent,
   sectionColor,
   columns,
-  showInfo
+  showInfo,
 }: PortfolioCardProps) {
   const { title, description, image, repoUrl, demoUrl, modal, tech, year } =
     data ?? {};
@@ -70,7 +70,7 @@ export default function PortfolioCard({
         borderBottom={showInfo ? "1px" : "none"}
         borderColor={sectionColor}
         onClick={handleClick}
-              transition="100ms ease-in"
+        transition="100ms ease-in"
       />
       {year && (
         <Text
@@ -82,7 +82,7 @@ export default function PortfolioCard({
           maxH={showInfo ? "unset" : "0"}
           fontWeight="500"
           pos="absolute"
-          top={showInfo ? "134": "0"}
+          top={showInfo ? "134" : "0"}
           right="0"
           p={2}
           borderRadius="10px 0 0 0"
@@ -92,31 +92,52 @@ export default function PortfolioCard({
       )}
 
       {/* CARD BOTTOM */}
-      <Stack flex="1" p={showInfo ? 5 : 0} gap={3} h="full" justify="space-between" maxH={showInfo ? "10000px" : "0px"} overflow="hidden">
-        <Heading as="h5" size={showInfo ? "sm" : "0px"} overflow="hidden" pb={3}>
-          {title}
-        </Heading>
-        <Flex justify="center" align="end" w="full" gap={3} display={showInfo ? "flex" : "none"}>
-          {demoUrl && (
-            <a href={demoUrl} rel="noopener noreferrer" target="_blank">
-              <Button color="primary" type="button">
-                <Icon as={BiLinkExternal} mr={columns >= 5 ? 0 : 3} />
-                {columns >= 5 ? "" : "View"}
+      {showInfo && (
+        <Stack
+          flex="1"
+          p={showInfo ? 5 : 0}
+          gap={3}
+          h="full"
+          justify="space-between"
+          maxH={showInfo ? "10000px" : "0px"}
+          overflow="hidden"
+        >
+          <Heading
+            as="h5"
+            size={showInfo ? "sm" : "0px"}
+            overflow="hidden"
+            pb={showInfo ? 3 : 0}
+          >
+            {title}
+          </Heading>
+          <Flex
+            justify="center"
+            align="end"
+            w="full"
+            gap={3}
+            display={showInfo ? "flex" : "none"}
+          >
+            {demoUrl && (
+              <a href={demoUrl} rel="noopener noreferrer" target="_blank">
+                <Button color="primary" type="button">
+                  <Icon as={BiLinkExternal} mr={columns >= 5 ? 0 : 3} />
+                  {columns >= 5 ? "" : "View"}
+                </Button>
+              </a>
+            )}
+            {repoUrl && (
+              <a href={repoUrl} rel="noopener noreferrer" target="_blank">
+                <Button type="button">Repo</Button>
+              </a>
+            )}
+            {modal && (
+              <Button onClick={handleClick} type="button">
+                Info
               </Button>
-            </a>
-          )}
-          {repoUrl && (
-            <a href={repoUrl} rel="noopener noreferrer" target="_blank">
-              <Button type="button">Repo</Button>
-            </a>
-          )}
-          {modal && (
-            <Button onClick={handleClick} type="button">
-              Info
-            </Button>
-          )}
-        </Flex>
-      </Stack>
+            )}
+          </Flex>
+        </Stack>
+      )}
     </Stack>
   );
 }
