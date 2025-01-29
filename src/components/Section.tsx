@@ -74,7 +74,7 @@ export default function Section({ sectionData }: SectionProps) {
           <Stack align="center" pb={3}>
             <Box
               textAlign="center"
-              maxH={showInfo ? "1000px" : "0"}
+              maxH={showInfo ? "10000px" : "0"}
               opacity={showInfo ? 1 : 0}
               pb={"0"}
               overflow="hidden"

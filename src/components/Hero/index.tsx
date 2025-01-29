@@ -45,7 +45,7 @@ export default function Hero({ setIsOpen, isOpen }: HeroProps) {
       minH="100dvh"
       backgroundImage={shade === "light" ? gradientLight : gradientDark}
       pt={[5, 5, 20]}
-      overflow="hidden"
+      // overflow="hidden"
     >
       <Divider
         chakraProps={{
@@ -80,7 +80,7 @@ export default function Hero({ setIsOpen, isOpen }: HeroProps) {
         <HeroContent showLogos={showLogos} />
       </Stack>
 
-      <Flex
+      {/* <Flex
         pos="absolute"
         align="center"
         justify="center"
@@ -99,7 +99,7 @@ export default function Hero({ setIsOpen, isOpen }: HeroProps) {
           Keep scrollin'
         </Heading>
         <FaArrowAltCircleDown size="2rem" fill="#244f9e" />
-      </Flex>
+      </Flex> */}
     </Box>
   );
 }
