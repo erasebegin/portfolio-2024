@@ -1,6 +1,6 @@
 import { Button, Flex, Icon, Text } from "@chakra-ui/react";
 import { FaTimes } from "react-icons/fa";
-import { HiCode, HiMail, HiX } from "react-icons/hi";
+import { HiCode, HiMail } from "react-icons/hi";
 
 interface HeroButtonsProps {
   showLogos: boolean;

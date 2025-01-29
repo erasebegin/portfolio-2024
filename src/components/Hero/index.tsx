@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Divider from "../Divider";
 import {
   Box,
@@ -18,17 +18,6 @@ interface HeroProps {
 
 export default function Hero({ setIsOpen, isOpen }: HeroProps) {
   const [showLogos, setShowLogos] = useState<boolean>(false);
-  const [scrollOpacity, setScrollOpacity] = useState(1);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const opacity = Math.max(0, 1 - window.scrollY / 400);
-      setScrollOpacity(opacity);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   const shade = useColorModeValue("light", "dark");
   const gradientLight =
@@ -77,27 +66,6 @@ export default function Hero({ setIsOpen, isOpen }: HeroProps) {
 
         <HeroContent showLogos={showLogos} />
       </Stack>
-
-      {/* <Flex
-        pos="absolute"
-        align="center"
-        justify="center"
-        bottom={5}
-        w="full"
-        gap={3}
-        opacity={scrollOpacity * 0.4}
-        transition="opacity 200ms"
-      >
-        <FaArrowAltCircleDown size="2rem" fill="#244f9e" />
-        <Heading
-          size="2xl"
-          bgGradient="linear(to-r, blue.400, purple.500)"
-          bgClip="text"
-        >
-          Keep scrollin'
-        </Heading>
-        <FaArrowAltCircleDown size="2rem" fill="#244f9e" />
-      </Flex> */}
     </Box>
   );
 }
