@@ -56,7 +56,7 @@ export default function HeroContent({ showLogos }: HeroContentProps) {
       />
       <Image
         src="/images/whiteboard-text/cloud.svg"
-        minW={["unset","unset","600px"]}
+        minW={["unset","unset","500px"]}
         maxW={["300px","400px","unset"]}
         pos="absolute"
         right={["50px","100px","0"]}

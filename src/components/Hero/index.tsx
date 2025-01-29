@@ -3,12 +3,10 @@ import Divider from "../Divider";
 import {
   Box,
   Flex,
-  Heading,
   Stack,
   theme,
   useColorModeValue,
 } from "@chakra-ui/react";
-import { FaArrowAltCircleDown } from "react-icons/fa";
 import HeroButtons from "./HeroButtons";
 import HeroImage from "./HeroImage";
 import HeroContent from "./HeroContent";
@@ -42,10 +40,10 @@ export default function Hero({ setIsOpen, isOpen }: HeroProps) {
     <Box
       as="section"
       pos="relative"
-      minH="100dvh"
+      minH={["900px","900px","950px"]}
+      overflowX="hidden"
       backgroundImage={shade === "light" ? gradientLight : gradientDark}
       pt={[5, 5, 20]}
-      // overflow="hidden"
     >
       <Divider
         chakraProps={{
