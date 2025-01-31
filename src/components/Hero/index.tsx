@@ -29,8 +29,8 @@ export default function Hero({ setIsOpen, isOpen }: HeroProps) {
     <Box
       as="section"
       pos="relative"
-      minH={["900px","900px","950px"]}
-      overflowX="hidden"
+      minH={["900px","900px","1000px"]}
+      overflow="hidden"
       backgroundImage={shade === "light" ? gradientLight : gradientDark}
       pt={[5, 5, 20]}
     >
