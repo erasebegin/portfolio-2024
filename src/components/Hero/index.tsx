@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import Divider from '../Divider'
 import {
-  AspectRatio,
   Box,
   Flex,
   Modal,
