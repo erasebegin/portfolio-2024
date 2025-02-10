@@ -1,37 +1,50 @@
-import { Box, Image, Skeleton } from "@chakra-ui/react";
-import { useState } from "react";
-import Logos from "../Logos";
+import { Box, Flex, Icon, Image, Skeleton } from '@chakra-ui/react'
+import { SetStateAction, useState } from 'react'
+import Logos from '../Logos'
+import { BiPlayCircle } from 'react-icons/bi'
 
 interface HeroImageProps {
   showLogos: boolean;
+  setShowVideoPlayer: React.Dispatch<SetStateAction<boolean>>;
 }
 
-export default function HeroImage({ showLogos }: HeroImageProps) {
-  const [imageLoaded, setImageLoaded] = useState(false);
+export default function HeroImage({ showLogos, setShowVideoPlayer }: HeroImageProps) {
+  const [imageLoaded, setImageLoaded] = useState(false)
 
   return (
     <Box pos="relative" zIndex="4">
       <Logos showLogos={showLogos} />
+      <Box
+        bg="blue.50"
+        pos="absolute"
+        top="0"
+        rounded="full"
+        w="full"
+        h="full"
+        border="solid"
+        borderWidth={5}
+        borderColor="blue.300"
+      />
       <Skeleton
         isLoaded={imageLoaded}
         fadeDuration={1}
-        borderRadius="full"
+        rounded="full"
         startColor="gray.100"
         endColor="gray.300"
         boxSize={[
-          showLogos ? "200px" : "300px",
-          showLogos ? "200px" : "300px",
-          showLogos ? "300px" : "400px",
+          showLogos ? '200px' : '300px',
+          showLogos ? '200px' : '300px',
+          showLogos ? '300px' : '400px',
         ]}
       >
         <Image
-          src="./images/me-shell-crop.jpeg"
-          fallbackSrc="./images/me-shell-crop-blur.png"
+          pos="absolute"
+          src="./images/promo_vid_preview.gif"
           loading="lazy"
           border="solid"
           borderWidth={5}
           borderColor="blue.300"
-          alt="headshot, looking at the camera, light streaming in from stained glass window behind"
+          alt="video preview showing a talking head"
           borderRadius="full"
           boxSize="100%"
           transition="200ms ease-in-out"
@@ -40,7 +53,25 @@ export default function HeroImage({ showLogos }: HeroImageProps) {
           crossOrigin="anonymous"
           onLoad={() => setImageLoaded(true)}
         />
+        {/* VIDEO BUTTON OVERLAY */}
+        <Flex
+          pos="absolute"
+          top="0"
+          align="center"
+          justify="center"
+          bg="#00000055"
+          w="full"
+          h="full"
+          rounded="full"
+          opacity="0.5"
+          transition="200ms ease-out"
+          _hover={{ opacity: '1', transition: '200ms ease-in', svg: { fontSize: '3.5rem' } }}
+          cursor="pointer"
+          onClick={()=>setShowVideoPlayer(true)}
+        >
+          <Icon as={BiPlayCircle} color="blue.100" fontSize="3rem" />
+        </Flex>
       </Skeleton>
     </Box>
-  );
+  )
 }

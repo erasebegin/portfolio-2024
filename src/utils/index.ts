@@ -1,34 +1,34 @@
-import { ChakraTheme } from "@chakra-ui/react";
+import { ChakraTheme } from '@chakra-ui/react'
 
 export const getDividerColor = (
   dividerColor: string,
   shade: string,
-  theme: ChakraTheme,
+  theme: ChakraTheme
 ): string => {
-  if (dividerColor === "white") {
-    return shade === "800" ? "#1A202C" : "#fff";
+  if (dividerColor === 'white') {
+    return shade === '800' ? '#1A202C' : '#fff'
   }
 
-  if (dividerColor === "darkBlue") {
-    return shade === "800" ? "hsl(220deg 45% 18%)" : "hsl(220deg 70% 80%)";
+  if (dividerColor === 'darkBlue') {
+    return shade === '800' ? 'hsl(220deg 45% 18%)' : 'hsl(220deg 70% 80%)'
   }
 
-  if (dividerColor === "lightBlue") {
-    return shade === "800" ? "hsl(190deg 65% 22%)" : "hsl(190deg 85% 85%)";
+  if (dividerColor === 'lightBlue') {
+    return shade === '800' ? 'hsl(190deg 65% 22%)' : 'hsl(190deg 85% 85%)'
   }
 
-  const colorGroup = theme.colors[dividerColor];
+  const colorGroup = theme.colors[dividerColor]
 
-  if (typeof colorGroup === "object" && colorGroup !== null && shade in colorGroup) {
-    return colorGroup[shade as keyof typeof colorGroup] as string;
+  if (typeof colorGroup === 'object' && colorGroup !== null && shade in colorGroup) {
+    return colorGroup[shade as keyof typeof colorGroup] as string
   }
 
-  return "#000";
-};
+  return '#000'
+}
 
-export function getGradient(sectionColor: string, shade: "light" | "dark") {
-  if (sectionColor === "green") {
-    if (shade === "dark") {
+export function getGradient(sectionColor: string, shade: 'light' | 'dark') {
+  if (sectionColor === 'green') {
+    if (shade === 'dark') {
       return `linear-gradient(
         0deg,
         hsl(151deg 42% 23%) 0%,
@@ -44,7 +44,7 @@ export function getGradient(sectionColor: string, shade: "light" | "dark") {
         hsl(145deg 6% 22%) 83%,
         hsl(145deg 3% 22%) 92%,
         hsl(0deg 0% 21%) 100%
-      );`;
+      );`
     }
 
     return `linear-gradient(
@@ -62,11 +62,11 @@ export function getGradient(sectionColor: string, shade: "light" | "dark") {
     hsl(137deg 74% 98%) 83%,
     hsl(137deg 74% 99%) 92%,
     hsl(0deg 0% 100%) 100%
-  );`;
+  );`
   }
 
-  if (sectionColor === "blue") {
-    if (shade === "dark") {
+  if (sectionColor === 'blue') {
+    if (shade === 'dark') {
       return `linear-gradient(
         0deg,
         hsl(215deg 40% 28%) 0%,
@@ -82,7 +82,7 @@ export function getGradient(sectionColor: string, shade: "light" | "dark") {
         hsl(222deg 7% 23%) 83%,
         hsl(222deg 4% 22%) 92%,
         hsl(0deg 0% 21%) 100%
-      );`;
+      );`
     }
 
     return `linear-gradient(
@@ -100,11 +100,11 @@ export function getGradient(sectionColor: string, shade: "light" | "dark") {
     hsl(203deg 80% 98%) 83%,
     hsl(203deg 80% 99%) 92%,
     hsl(0deg 0% 100%) 100%
-  );`;
+  );`
   }
 
-  if (sectionColor === "yellow") {
-    if (shade === "dark") {
+  if (sectionColor === 'yellow') {
+    if (shade === 'dark') {
       return `linear-gradient(
         0deg,
         hsl(30deg 76% 26%) 0%,
@@ -120,7 +120,7 @@ export function getGradient(sectionColor: string, shade: "light" | "dark") {
         hsl(26deg 15% 23%) 83%,
         hsl(25deg 8% 22%) 92%,
         hsl(0deg 0% 21%) 100%
-      );`;
+      );`
     }
 
     return `linear-gradient(
@@ -138,11 +138,11 @@ export function getGradient(sectionColor: string, shade: "light" | "dark") {
     hsl(57deg 100% 98%) 83%,
     hsl(57deg 100% 99%) 92%,
     hsl(0deg 0% 100%) 100%
-  );`;
+  );`
   }
 
-  if (sectionColor === "darkBlue") {
-    if (shade === "dark") {
+  if (sectionColor === 'darkBlue') {
+    if (shade === 'dark') {
       return `linear-gradient(
         0deg,
         hsl(220deg 45% 18%) 0%,
@@ -158,7 +158,7 @@ export function getGradient(sectionColor: string, shade: "light" | "dark") {
         hsl(220deg 15% 15%) 83%,
         hsl(220deg 12% 15%) 92%,
         hsl(0deg 0% 21%) 100%
-      );`;
+      );`
     }
 
     return `linear-gradient(
@@ -176,11 +176,11 @@ export function getGradient(sectionColor: string, shade: "light" | "dark") {
       hsl(220deg 70% 98%) 83%,
       hsl(220deg 70% 99%) 92%,
       hsl(0deg 0% 100%) 100%
-    );`;
+    );`
   }
 
-  if (sectionColor === "lightBlue") {
-    if (shade === "dark") {
+  if (sectionColor === 'lightBlue') {
+    if (shade === 'dark') {
       return `linear-gradient(
         0deg,
         hsl(190deg 65% 22%) 0%,
@@ -196,7 +196,7 @@ export function getGradient(sectionColor: string, shade: "light" | "dark") {
         hsl(190deg 35% 17%) 83%,
         hsl(190deg 32% 17%) 92%,
         hsl(0deg 0% 21%) 100%
-      );`;
+      );`
     }
 
     return `linear-gradient(
@@ -214,13 +214,13 @@ export function getGradient(sectionColor: string, shade: "light" | "dark") {
       hsl(190deg 85% 95%) 83%,
       hsl(190deg 85% 96%) 92%,
       hsl(0deg 0% 100%) 100%
-    );`;
+    );`
   }
 }
 
 export function kebabToTitleCase(str: string) {
   return str
-    .split("-")
+    .split('-')
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(" ");
+    .join(' ')
 }

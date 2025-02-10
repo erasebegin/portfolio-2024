@@ -8,35 +8,35 @@ import {
   Stack,
   Textarea,
   useColorModeValue,
-} from "@chakra-ui/react";
-import { useState } from "react";
-import { GiLetterBomb } from "react-icons/gi";
-import { HiX } from "react-icons/hi";
+} from '@chakra-ui/react'
+import { useState } from 'react'
+import { GiLetterBomb } from 'react-icons/gi'
+import { HiX } from 'react-icons/hi'
 
 interface ContactProps {
-  isOpen: boolean;
-  setIsOpen: (isOpen: boolean) => void;
+  isOpen: boolean
+  setIsOpen: (isOpen: boolean) => void
 }
 
 export default function Contact({ isOpen, setIsOpen }: ContactProps) {
-  const [name, setName] = useState<string>("");
-  const [email, setEmail] = useState<string>("");
-  const [message, setMessage] = useState<string>("");
+  const [name, setName] = useState<string>('')
+  const [email, setEmail] = useState<string>('')
+  const [message, setMessage] = useState<string>('')
 
-  const bg = useColorModeValue("white", "gray.700");
+  const bg = useColorModeValue('white', 'gray.700')
 
   return (
     <Box
       pos="fixed"
       top="40%"
       left="50%"
-      transform={isOpen ? "translate(-50%, -50%)" : "translate(100vw, -50%)"}
+      transform={isOpen ? 'translate(-50%, -50%)' : 'translate(100vw, -50%)'}
       transition="200ms ease-in-out"
       zIndex="20"
     >
       <Box
         p={10}
-        minW={["300px", "400px", "500px"]}
+        minW={['300px', '400px', '500px']}
         borderWidth="1px"
         borderColor="blue.200"
         borderTopWidth="15px"
@@ -74,7 +74,7 @@ export default function Contact({ isOpen, setIsOpen }: ContactProps) {
                 placeholder="Name"
                 type="text"
                 name="name"
-                _placeholder={{ color: "gray.400" }}
+                _placeholder={{ color: 'gray.400' }}
                 variant="flushed"
                 onChange={(e) => setName(e.target.value)}
                 value={name}
@@ -89,7 +89,7 @@ export default function Contact({ isOpen, setIsOpen }: ContactProps) {
                 placeholder="Email"
                 type="email"
                 name="email"
-                _placeholder={{ color: "gray.400" }}
+                _placeholder={{ color: 'gray.400' }}
                 variant="flushed"
                 onChange={(e) => setEmail(e.target.value)}
                 value={email}
@@ -103,22 +103,18 @@ export default function Contact({ isOpen, setIsOpen }: ContactProps) {
                 id="message"
                 placeholder="Message"
                 name="message"
-                _placeholder={{ color: "gray.400" }}
+                _placeholder={{ color: 'gray.400' }}
                 variant="flushed"
                 onChange={(e) => setMessage(e.target.value)}
                 value={message}
               />
             </FormControl>
-            <Button
-              colorScheme="blue"
-              disabled={!email || !message}
-              type="submit"
-            >
+            <Button colorScheme="blue" disabled={!email || !message} type="submit">
               <GiLetterBomb size="2rem" />
             </Button>
           </Stack>
         </form>
       </Box>
     </Box>
-  );
+  )
 }

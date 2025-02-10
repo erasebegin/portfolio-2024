@@ -1,14 +1,14 @@
-import { Box, useColorModeValue, BoxProps } from "@chakra-ui/react";
+import { Box, useColorModeValue, BoxProps } from '@chakra-ui/react'
 
 interface HeroSvgProps extends BoxProps {
-  side: string;
+  side: string
 }
 
 export default function HeroSvg(props: HeroSvgProps) {
-  const colorModeValue = useColorModeValue("#444", "#fff");
-  const { side } = props;
+  const colorModeValue = useColorModeValue('#444', '#fff')
+  const { side } = props
 
-  if (side === "left") {
+  if (side === 'left') {
     return (
       <Box {...props}>
         <svg
@@ -17,21 +17,14 @@ export default function HeroSvg(props: HeroSvgProps) {
           viewBox="0 0 800 600"
           version="1.1"
           style={{
-            fillRule: "evenodd",
-            clipRule: "evenodd",
-            strokeLinejoin: "round",
+            fillRule: 'evenodd',
+            clipRule: 'evenodd',
+            strokeLinejoin: 'round',
             strokeMiterlimit: 2,
             fill: colorModeValue,
           }}
         >
-          <rect
-            id="left"
-            x="0"
-            y="0"
-            width="800"
-            height="600"
-            style={{ fill: "none" }}
-          />
+          <rect id="left" x="0" y="0" width="800" height="600" style={{ fill: 'none' }} />
           <g id="left1">
             <path d="M62.113,187.275C67.784,184.5 70.525,179.343 71.718,173.157C73.204,165.451 72.226,156.113 72.239,148.29C72.252,130.155 68.209,96.168 74.077,71.47C76.857,59.769 81.84,50.171 90.815,45.701C95.88,43.212 100.374,42.642 104.309,43.112C111.083,43.921 116.151,47.829 119.716,50.063C120.659,50.654 121.484,51.219 122.265,51.457C123.287,51.769 124.085,51.822 124.763,51.626C125.478,51.626 126.058,51.046 126.058,50.331C126.058,49.616 125.478,49.036 124.763,49.036C124.427,48.939 124.286,48.498 123.853,48.196C123.284,47.798 122.56,47.391 121.772,46.87C117.92,44.322 112.152,40.374 104.704,39.591C100.202,39.117 95.068,39.794 89.323,42.716C79.551,47.622 73.936,57.961 70.934,70.727C65.068,95.678 69.11,129.98 69.124,148.29C69.137,155.937 70.114,165.052 68.739,172.598C67.779,177.871 65.666,182.373 60.883,184.815C60.204,185.155 59.929,185.981 60.268,186.66C60.607,187.339 61.434,187.614 62.113,187.275Z" />
             <path d="M55.068,142.077C55.809,143.3 57.38,144.173 59.583,144.553C62.08,144.983 65.522,144.73 69.15,144.123C73.08,143.465 77.32,142.546 80.661,141.199C84.473,139.662 87.114,137.77 87.82,136.858C88.269,136.409 88.269,135.681 87.82,135.233C87.372,134.784 86.644,134.784 86.196,135.233C85.482,135.771 83.159,136.072 80.208,136.886C75.852,138.087 70.189,139.934 65.362,140.576C62.982,140.893 60.856,140.99 59.279,140.717C58.613,140.602 58.028,140.585 57.724,140.218C57.211,139.484 56.199,139.306 55.466,139.819C54.733,140.332 54.554,141.344 55.068,142.077Z" />
@@ -59,7 +52,7 @@ export default function HeroSvg(props: HeroSvgProps) {
           </g>
         </svg>
       </Box>
-    );
+    )
   }
 
   return (
@@ -70,21 +63,14 @@ export default function HeroSvg(props: HeroSvgProps) {
         viewBox="0 0 800 600"
         version="1.1"
         style={{
-          fillRule: "evenodd",
-          clipRule: "evenodd",
-          strokeLinejoin: "round",
+          fillRule: 'evenodd',
+          clipRule: 'evenodd',
+          strokeLinejoin: 'round',
           strokeMiterlimit: 2,
           fill: colorModeValue,
         }}
       >
-        <rect
-          id="right"
-          x="0"
-          y="0"
-          width="800"
-          height="600"
-          style={{ fill: "none" }}
-        />
+        <rect id="right" x="0" y="0" width="800" height="600" style={{ fill: 'none' }} />
         <g transform="matrix(1,0,0,1,-833.865,-1.59439)">
           <g id="right" transform="matrix(1,0,0,1,833.865,1.59439)">
             <g transform="matrix(1,0,0,1,-833.865,-1.59439)">
@@ -214,5 +200,5 @@ export default function HeroSvg(props: HeroSvgProps) {
         </g>
       </svg>
     </Box>
-  );
+  )
 }

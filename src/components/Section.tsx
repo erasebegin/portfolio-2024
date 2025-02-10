@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { IoMdArrowDropright } from "react-icons/io";
+import { useState } from 'react'
+import { IoMdArrowDropright } from 'react-icons/io'
 import {
   Box,
   Button,
@@ -13,39 +13,38 @@ import {
   Text,
   useColorModeValue,
   useTheme,
-} from "@chakra-ui/react";
-import Card from "./Card";
-import ImageModal, { ModalContent } from "./ImageModal";
-import Divider from "./Divider";
-import TechIcon from "./TechIcon";
-import { ProjectSection } from "../data/sectionData";
-import { getDividerColor, getGradient } from "../utils";
+} from '@chakra-ui/react'
+import Card from './Card'
+import ImageModal, { ModalContent } from './ImageModal'
+import Divider from './Divider'
+import TechIcon from './TechIcon'
+import { ProjectSection } from '../data/sectionData'
+import { getDividerColor, getGradient } from '../utils'
 
 interface SectionProps {
-  sectionData: ProjectSection;
+  sectionData: ProjectSection
 }
 
 export default function Section({ sectionData }: SectionProps) {
-  const { cards, title, subtitle, color, dividerColor, sectionInfo, columns } =
-    sectionData || {};
+  const { cards, title, subtitle, color, dividerColor, sectionInfo, columns } = sectionData || {}
 
-  const [modalContent, setModalContent] = useState<ModalContent>();
-  const [showInfo, setShowInfo] = useState(false);
-  const theme = useTheme() as ChakraTheme;
-  const shade = useColorModeValue("light", "dark");
+  const [modalContent, setModalContent] = useState<ModalContent>()
+  const [showInfo, setShowInfo] = useState(false)
+  const theme = useTheme() as ChakraTheme
+  const shade = useColorModeValue('light', 'dark')
 
   const chakraDividerColor = getDividerColor(
-    dividerColor || "blue",
-    shade === "light" ? "100" : "800",
+    dividerColor || 'blue',
+    shade === 'light' ? '100' : '800',
     theme
-  );
+  )
 
   return (
     <Box
       as="section"
       pos="relative"
       w="full"
-      px={[5,10,10]}
+      px={[5, 10, 10]}
       overflowX="hidden"
       backgroundImage={getGradient(color, shade)}
       marginTop="0 !important"
@@ -74,18 +73,18 @@ export default function Section({ sectionData }: SectionProps) {
           <Stack align="center" pb={3}>
             <Box
               textAlign="center"
-              maxH={showInfo ? "10000px" : "0"}
+              maxH={showInfo ? '10000px' : '0'}
               opacity={showInfo ? 1 : 0}
-              pb={"0"}
+              pb={'0'}
               overflow="hidden"
               transition="400ms ease-in-out"
               sx={{
                 p: {
-                  maxWidth: "700px",
-                  pb: "1rem",
+                  maxWidth: '700px',
+                  pb: '1rem',
                 },
                 h4: {
-                  fontWeight: "bold",
+                  fontWeight: 'bold',
                 },
               }}
             >
@@ -109,11 +108,11 @@ export default function Section({ sectionData }: SectionProps) {
             {sectionInfo?.tech.map((type) => (
               <GridItem key={type}>
                 <TechIcon
-                  size={showInfo ? "md" : "sm"}
+                  size={showInfo ? 'md' : 'sm'}
                   type={type}
                   labelColor={getDividerColor(
-                    dividerColor || "blue",
-                    shade === "light" ? "100" : "800",
+                    dividerColor || 'blue',
+                    shade === 'light' ? '100' : '800',
                     theme
                   )}
                 />
@@ -124,8 +123,8 @@ export default function Section({ sectionData }: SectionProps) {
         <Grid
           gap={5}
           templateColumns={[
-            showInfo ? "repeat(1, 1fr)":"repeat(3, 1fr)",
-            "repeat(4, 1fr)",
+            showInfo ? 'repeat(1, 1fr)' : 'repeat(3, 1fr)',
+            'repeat(4, 1fr)',
             `repeat(5, 1fr)`,
             `repeat(${columns || 3}, 1fr)`,
           ]}
@@ -139,8 +138,8 @@ export default function Section({ sectionData }: SectionProps) {
               data={cardData}
               columns={columns || 3}
               sectionColor={getDividerColor(
-                dividerColor || "blue",
-                shade === "light" ? "100" : "800",
+                dividerColor || 'blue',
+                shade === 'light' ? '100' : '800',
                 theme
               )}
               setModalContent={setModalContent}
@@ -151,24 +150,20 @@ export default function Section({ sectionData }: SectionProps) {
           mt={5}
           mb={10}
           onClick={() => setShowInfo(!showInfo)}
-          bg={getDividerColor(
-            dividerColor || "blue",
-            shade === "light" ? "100" : "800",
-            theme
-          )}
-          _hover={{ bg: getDividerColor(dividerColor || "blue", "200", theme) }}
-          color={shade === "dark" ? "blue.50" : "blue.900"}
+          bg={getDividerColor(dividerColor || 'blue', shade === 'light' ? '100' : '800', theme)}
+          _hover={{ bg: getDividerColor(dividerColor || 'blue', '200', theme) }}
+          color={shade === 'dark' ? 'blue.50' : 'blue.900'}
         >
           More info
           <Icon
             as={IoMdArrowDropright}
             w="1.5rem"
             h="1.5rem"
-            transform={showInfo ? "rotate(-90deg)" : "rotate(90deg)"}
+            transform={showInfo ? 'rotate(-90deg)' : 'rotate(90deg)'}
             transition="400ms ease-in-out"
           />
         </Button>
       </Stack>
     </Box>
-  );
+  )
 }

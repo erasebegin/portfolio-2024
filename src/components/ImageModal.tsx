@@ -1,40 +1,40 @@
-import { useEffect, useState, MouseEvent } from "react";
-import BgBlur from "./BgBlur";
-import { Box, Button, Flex, Image, Text, useColorModeValue } from "@chakra-ui/react";
-import TechIcon from "./TechIcon";
-import { FaTimes } from "react-icons/fa";
+import { useEffect, useState, MouseEvent } from 'react'
+import BgBlur from './BgBlur'
+import { Box, Button, Flex, Image, Text, useColorModeValue } from '@chakra-ui/react'
+import TechIcon from './TechIcon'
+import { FaTimes } from 'react-icons/fa'
 
 export interface ModalContent {
-  image?: string;
-  tech?: string[];
-  list?: string[];
-  description?: string;
+  image?: string
+  tech?: string[]
+  list?: string[]
+  description?: string
 }
 
 interface ImageModalProps {
-  modalContent?: ModalContent;
+  modalContent?: ModalContent
 }
 
 const ImageModal: React.FC<ImageModalProps> = ({ modalContent }) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const { image, tech, list, description } = modalContent ?? {};
+  const [isOpen, setIsOpen] = useState(false)
+  const { image, tech, list, description } = modalContent ?? {}
 
-  const modalBg = useColorModeValue("white", "gray.500");
-  const detailBg1 = useColorModeValue("blue.50", "gray.700");
-  const detailBg2 = useColorModeValue("blue.100", "gray.600");
+  const modalBg = useColorModeValue('white', 'gray.500')
+  const detailBg1 = useColorModeValue('blue.50', 'gray.700')
+  const detailBg2 = useColorModeValue('blue.100', 'gray.600')
 
   useEffect(() => {
-    if (!modalContent) return;
+    if (!modalContent) return
     if (Object.keys(modalContent).length > 0) {
-      setIsOpen(true);
+      setIsOpen(true)
     }
-  }, [modalContent]);
+  }, [modalContent])
 
   const checkClose = (e: MouseEvent<HTMLDivElement>) => {
-    if ((e.target as HTMLDivElement).classList.contains("modal-container")) {
-      setIsOpen(false);
+    if ((e.target as HTMLDivElement).classList.contains('modal-container')) {
+      setIsOpen(false)
     }
-  };
+  }
 
   return (
     <>
@@ -49,11 +49,21 @@ const ImageModal: React.FC<ImageModalProps> = ({ modalContent }) => {
         width="100dvw"
         zIndex={11}
         opacity={isOpen ? 1 : 0}
-        pointerEvents={isOpen ? "all" : "none"}
+        pointerEvents={isOpen ? 'all' : 'none'}
         transition="all 200ms ease-out"
       >
         <BgBlur show={isOpen} onClick={() => setIsOpen(false)} />
-        <Button onClick={() => setIsOpen(false)} zIndex={11} rounded="full" h="40px" w="40px" bg={detailBg2} mt={3}><FaTimes /></Button>
+        <Button
+          onClick={() => setIsOpen(false)}
+          zIndex={11}
+          rounded="full"
+          h="40px"
+          w="40px"
+          bg={detailBg2}
+          mt={3}
+        >
+          <FaTimes />
+        </Button>
         {/* Inner Container */}
         <Box
           pos="absolute"
@@ -62,8 +72,8 @@ const ImageModal: React.FC<ImageModalProps> = ({ modalContent }) => {
           transform="translate(-50%, -50%)"
           transition="ease-out"
           overflowY="auto"
-          maxH={["800px", "80%"]}
-          w={["95%", "80%"]}
+          maxH={['800px', '80%']}
+          w={['95%', '80%']}
           maxW="800px"
           shadow="lg"
           bg={modalBg}
@@ -87,9 +97,7 @@ const ImageModal: React.FC<ImageModalProps> = ({ modalContent }) => {
           {list && (
             <Box p={5} pt={description ? 3 : 5}>
               <Flex justify="center" pb={10} gap={5}>
-                {tech?.map((type, idx) => (
-                  <TechIcon key={idx} type={type} labelColor="blue.300" />
-                ))}
+                {tech?.map((type, idx) => <TechIcon key={idx} type={type} labelColor="blue.300" />)}
               </Flex>
               {list?.map((item, index) => (
                 <Text
@@ -98,7 +106,7 @@ const ImageModal: React.FC<ImageModalProps> = ({ modalContent }) => {
                   bg={index % 2 === 0 ? detailBg1 : detailBg2}
                   p={3}
                   fontSize="md"
-                  sx={{a: {color: "blue.500", textDecor: "underline"}}}
+                  sx={{ a: { color: 'blue.500', textDecor: 'underline' } }}
                   dangerouslySetInnerHTML={{ __html: item }}
                 />
               ))}
@@ -107,7 +115,7 @@ const ImageModal: React.FC<ImageModalProps> = ({ modalContent }) => {
         </Box>
       </Box>
     </>
-  );
-};
+  )
+}
 
-export default ImageModal;
+export default ImageModal
