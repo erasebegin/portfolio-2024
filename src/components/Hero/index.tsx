@@ -1,18 +1,10 @@
 import { useState } from 'react'
 import Divider from '../Divider'
-import {
-  Box,
-  Flex,
-  Modal,
-  ModalContent,
-  ModalOverlay,
-  Stack,
-  theme,
-  useColorModeValue,
-} from '@chakra-ui/react'
+import { Box, Flex, Stack, theme, useColorModeValue, useDisclosure } from '@chakra-ui/react'
 import HeroButtons from './HeroButtons'
 import HeroImage from './HeroImage'
 import HeroContent from './HeroContent'
+import VideoModal from './VideoModal'
 
 interface HeroProps {
   setIsOpen: (isOpen: boolean) => void
@@ -21,7 +13,7 @@ interface HeroProps {
 
 export default function Hero({ setIsOpen, isOpen }: HeroProps) {
   const [showLogos, setShowLogos] = useState<boolean>(false)
-  const [showVideoPlayer, setShowVideoPlayer] = useState<boolean>(false)
+  const { onOpen, onClose, isOpen: videoModalIsOpen } = useDisclosure()
 
   const shade = useColorModeValue('light', 'dark')
   const gradientLight =
@@ -58,7 +50,7 @@ export default function Hero({ setIsOpen, isOpen }: HeroProps) {
           mx="auto"
           w="full"
         >
-          <HeroImage showLogos={showLogos} setShowVideoPlayer={setShowVideoPlayer} />
+          <HeroImage showLogos={showLogos} onOpenVideoPlayer={onOpen} />
           <HeroButtons
             showLogos={showLogos}
             setShowLogos={setShowLogos}
@@ -66,21 +58,8 @@ export default function Hero({ setIsOpen, isOpen }: HeroProps) {
             isOpen={isOpen}
           />
         </Flex>
-        <Modal isOpen={showVideoPlayer} onClose={() => setShowVideoPlayer(false)}>
-          <ModalOverlay />
-          <ModalContent minW="90vw" maxW="1000px">
-            <Box
-              as="video"
-              src="./promo_vid_optimised.mp4"
-              controls
-              minW="90vw"
-              maxW="1000px"
-              autoPlay
-              rounded="md"
-            />
-          </ModalContent>
-        </Modal>
 
+        <VideoModal onClose={onClose} showVideoPlayer={videoModalIsOpen} />
         <HeroContent showLogos={showLogos} />
       </Stack>
     </Box>

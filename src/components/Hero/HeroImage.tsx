@@ -1,14 +1,14 @@
 import { Box, Flex, Icon, Image, Skeleton } from '@chakra-ui/react'
-import { SetStateAction, useState } from 'react'
+import { useState } from 'react'
 import Logos from '../Logos'
 import { BiPlayCircle } from 'react-icons/bi'
 
 interface HeroImageProps {
-  showLogos: boolean;
-  setShowVideoPlayer: React.Dispatch<SetStateAction<boolean>>;
+  showLogos: boolean
+  onOpenVideoPlayer: () => void
 }
 
-export default function HeroImage({ showLogos, setShowVideoPlayer }: HeroImageProps) {
+export default function HeroImage({ showLogos, onOpenVideoPlayer }: HeroImageProps) {
   const [imageLoaded, setImageLoaded] = useState(false)
 
   return (
@@ -67,7 +67,7 @@ export default function HeroImage({ showLogos, setShowVideoPlayer }: HeroImagePr
           transition="200ms ease-out"
           _hover={{ opacity: '1', transition: '200ms ease-in', svg: { fontSize: '3.5rem' } }}
           cursor="pointer"
-          onClick={()=>setShowVideoPlayer(true)}
+          onClick={() => onOpenVideoPlayer()}
         >
           <Icon as={BiPlayCircle} color="blue.100" fontSize="3rem" />
         </Flex>
