@@ -416,6 +416,20 @@ const data: ProjectSection[] = [
     },
     cards: [
       {
+        title: 'HAUPT',
+        year: '2025',
+        description: 'Landing page for upcoming musician HAUPT',
+        image: './images/haupt.jpg',
+        demoUrl: 'https://www.haupt.house/',
+        repoUrl: 'https://github.com/erasebegin/haupt-music',
+        tech: ['bun', 'netlify', 'react', 'tailwind'],
+        modal: [
+          'Designed by HAUPT (yes it is supposed to look janky!)',
+          'First time using Bun, absolutely loved it',
+          'Made the music carousel totally from scratch',
+        ],
+      },
+      {
         title: 'Steiger Berlin',
         year: '2022',
         description:
